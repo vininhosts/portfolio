@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Criativo | Desenhos, Gráficos e Ilustrações</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #fd79a8;
+            --accent: #00cec9;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+            --white: #ffffff;
+            --text: #2d3436;
+            --text-light: #636e72;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #a29bfe 100%);
+            color: var(--white);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 25px rgba(108, 92, 231, 0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .logo .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: var(--white);
+            border-radius: 50%;
+            margin-left: 8px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--white);
+            transition: width 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--white);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #a29bfe 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.95;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Portfolio Grid */
+        .portfolio {
+            padding: 80px 0;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.05);
+        }
+
+        .portfolio-image {
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .portfolio-image svg {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .item-category {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary);
+            color: var(--white);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .portfolio-info {
+            padding: 25px;
+        }
+
+        .portfolio-info h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .portfolio-info p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            font-size: 0.85rem;
+        }
+
+        .tools {
+            color: var(--text-light);
+        }
+
+        .tools span {
+            margin-right: 10px;
+        }
+
+        .tools span::before {
+            content: '#';
+            color: var(--primary);
+            margin-right: 3px;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: var(--light);
+            padding: 80px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item.nature {
+            background: linear-gradient(135deg, #48bb78 0%, #43aa8b 100%);
+        }
+
+        .gallery-item.abstract {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .gallery-item.portrait {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .gallery-item.architecture {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .gallery-item.product {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .gallery-item.tech {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .gallery-item .content {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .gallery-item .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .gallery-item .title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Services */
+        .services {
+            padding: 80px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .service-icon.illustration { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .service-icon.graphic { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .service-icon.ui { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .service-icon.branding { background: linear-gradient(135deg, #48bb78 0%, #43aa8b 100%); }
+
+        .service-card h4 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, var(--primary) 0%, #a29bfe 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 52c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM41 90c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 35px;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            background: var(--white);
+            color: var(--primary);
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(253, 121, 168, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta h3 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-tags {
+                gap: 10px;
+            }
+
+            .tag {
+                padding: 6px 15px;
+                font-size: 0.8rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">VS Design<span class="dot"></span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#portfolio">Portfólio</a></li>
+                        <li><a href="#galeria">Galeria</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="../" style="color: #00cec9;">Voltar</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Portfólio Criativo</h1>
+                <p>Desenhos, gráficos e ilustrações customizadas para dar vida aos seus projetos. Trabalhamos com estilo único e atenção aos detalhes.</p>
+                <div class="hero-tags">
+                    <span class="tag">Ilustração Digital</span>
+                    <span class="tag">Design Gráfico</span>
+                    <span class="tag">UI/UX</span>
+                    <span class="tag">Branding</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Projetos em Destaque</h2>
+                <p>Seleção dos nossos melhores trabalhos criativos em diversas categorias.</p>
+            </div>
+            <div class="portfolio-grid">
+                <!-- Ilustração de Personagem -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="item-category">Ilustração</div>
+                        <svg viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="100" cy="40" r="25" fill="#fd79a8" opacity="0.8"/>
+                            <ellipse cx="100" cy="80" rx="30" ry="40" fill="#667eea" opacity="0.6"/>
+                            <path d="M70 120 Q100 140 130 120" stroke="#00cec9" stroke-width="4" fill="none"/>
+                            <path d="M80 110 L90 95 L110 110" stroke="#fff" stroke-width="3" fill="none"/>
+                            <circle cx="85" cy="35" r="3" fill="#fff"/>
+                            <circle cx="115" cy="35" r="3" fill="#fff"/>
+                            <path d="M95 45 Q100 50 105 45" stroke="#fff" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Personagem Mascote</h3>
+                        <p>Ilustração vetorial de personagem mascote para marca de games. Estilo flat design com cores vibrantes e expressivo.</p>
+                        <div class="portfolio-meta">
+                            <span>2024</span>
+                            <div class="tools">
+                                <span>Illustrator</span>
+                                <span>Photoshop</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Infográfico -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #48bb78 0%, #43aa8b 100%);">
+                        <div class="item-category">Gráfico</div>
+                        <svg viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="30" y="120" width="20" height="30" fill="#2d3436"/>
+                            <rect x="60" y="90" width="20" height="60" fill="#2d3436"/>
+                            <rect x="90" y="60" width="20" height="90" fill="#2d3436"/>
+                            <rect x="120" y="100" width="20" height="50" fill="#2d3436"/>
+                            <rect x="150" y="70" width="20" height="80" fill="#2d3436"/>
+                            <path d="M30 120 L60 90 L90 60 L120 100 L150 70" stroke="#fd79a8" stroke-width="3" fill="none"/>
+                            <circle cx="30" cy="120" r="4" fill="#fd79a8"/>
+                            <circle cx="60" cy="90" r="4" fill="#fd79a8"/>
+                            <circle cx="90" cy="60" r="4" fill="#fd79a8"/>
+                            <circle cx="120" cy="100" r="4" fill="#fd79a8"/>
+                            <circle cx="150" cy="70" r="4" fill="#fd79a8"/>
+                            <text x="30" y="155" text-anchor="middle" fill="#fff" font-size="10">Jan</text>
+                            <text x="60" y="155" text-anchor="middle" fill="#fff" font-size="10">Fev</text>
+                            <text x="90" y="155" text-anchor="middle" fill="#fff" font-size="10">Mar</text>
+                            <text x="120" y="155" text-anchor="middle" fill="#fff" font-size="10">Abr</text>
+                            <text x="150" y="155" text-anchor="middle" fill="#fff" font-size="10">Mai</text>
+                        </svg>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Infográfico de Vendas</h3>
+                        <p>Gráfico de evolução de vendas para relatório anual. Design clean e profissional com foco em clareza.</p>
+                        <div class="portfolio-meta">
+                            <span>2024</span>
+                            <div class="tools">
+                                <span>Illustrator</span>
+                                <span>Excel</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desenho de Produto -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <div class="item-category">Produto</div>
+                        <svg viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="40" y="60" width="120" height="70" rx="10" fill="#2d3436"/>
+                            <rect x="50" y="70" width="100" height="50" fill="#6c5ce7"/>
+                            <circle cx="80" cy="100" r="5" fill="#fd79a8"/>
+                            <circle cx="120" cy="100" r="5" fill="#fd79a8"/>
+                            <path d="M60 80 L140 80" stroke="#fff" stroke-width="2"/>
+                            <path d="M60 90 L140 90" stroke="#fff" stroke-width="2"/>
+                            <path d="M60 100 L140 100" stroke="#fff" stroke-width="2"/>
+                            <path d="M60 110 L140 110" stroke="#fff" stroke-width="2"/>
+                            <rect x="100" y="30" width="20" height="30" fill="#2d3436"/>
+                            <rect x="95" y="20" width="30" height="10" fill="#6c5ce7"/>
+                        </svg>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Tablet Concept</h3>
+                        <p>Desenho técnico e renderização de tablet concept. Modelagem 3D realista com iluminação estudada.</p>
+                        <div class="portfolio-meta">
+                            <span>2024</span>
+                            <div class="tools">
+                                <span>Blender</span>
+                                <span>Photoshop</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ícones -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                        <div class="item-category">Ícones</div>
+                        <svg viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="#2d3436">
+                                <circle cx="50" cy="40" r="15"/>
+                                <path d="M45 35 L55 45 M55 35 L45 45"/>
+                                <rect x="100" y="25" width="20" height="30" rx="3"/>
+                                <path d="M110 30 L110 55 M105 30 L105 55 M100 30 L100 55"/>
+                                <circle cx="150" cy="40" r="15"/>
+                                <path d="M145 30 Q150 25 155 30 Q160 35 155 40 Q150 45 145 40 Q140 35 145 30"/>
+                                <path d="M70 100 L80 85 L90 100 L100 85 L110 100"/>
+                                <circle cx="75" cy="95" r="2"/>
+                                <circle cx="85" cy="90" r="2"/>
+                                <circle cx="95" cy="95" r="2"/>
+                                <circle cx="105" cy="90" r="2"/>
+                                <rect x="130" y="80" width="30" height="40" rx="5"/>
+                                <circle cx="145" cy="100" r="8"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Pack de Ícones</h3>
+                        <p>Conjunto de 24 ícones para aplicativo mobile. Estilo line art com espessura consistente de 2px.</p>
+                        <div class="portfolio-meta">
+                            <span>2024</span>
+                            <div class="tools">
+                                <span>Illustrator</span>
+                                <span>Figma</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Branding -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <div class="item-category">Branding</div>
+                        <svg viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="100" cy="75" r="40" fill="#fff" opacity="0.9"/>
+                            <text x="100" y="65" text-anchor="middle" fill="#6c5ce7" font-size="14" font-weight="bold">VOLTA</text>
+                            <text x="100" y="85" text-anchor="middle" fill="#6c5ce7" font-size="12">Design</text>
+                            <path d="M70 50 L85 35 L100 50 L115 35 L130 50" stroke="#6c5ce7" stroke-width="3" fill="none"/>
+                            <path d="M70 100 L85 115 L100 100 L115 115 L130 100" stroke="#6c5ce7" stroke-width="3" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Volta Design</h3>
+                        <p>Identidade visual completa com logo, padrões e paleta de cores. Trabalho premiado em concurso de design.</p>
+                        <div class="portfolio-meta">
+                            <span>2024</span>
+                            <div class="tools">
+                                <span>Illustrator</span>
+                                <span>Photoshop</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UI Design -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);">
+                        <div class="item-category">UI/UX</div>
+                        <svg viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="20" y="20" width="160" height="110" rx="15" fill="#fff"/>
+                            <rect x="30" y="40" width="140" height="8" rx="4" fill="#e0e0e0"/>
+                            <rect x="30" y="60" width="50" height="20" rx="10" fill="#6c5ce7"/>
+                            <rect x="35" y="65" width="40" height="10" rx="5" fill="#fff"/>
+                            <text x="55" y="72" text-anchor="middle" fill="#6c5ce7" font-size="8" font-weight="bold">Buscar</text>
+                            <rect x="90" y="60" width="80" height="15" rx="7" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+                            <circle cx="130" cy="67" r="2" fill="#6c5ce7"/>
+                            <text x="135" y="70" text-anchor="start" fill="#636e72" font-size="8">Pesquisar...</text>
+                            <rect x="30" y="90" width="30" height="30" rx="8" fill="#fd79a8"/>
+                            <circle cx="45" cy="105" r="8" fill="#fff"/>
+                            <text x="45" y="110" text-anchor="middle" fill="#fd79a8" font-size="6">+</text>
+                            <text x="45" y="100" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">A</text>
+                            <rect x="70" y="90" width="30" height="30" rx="8" fill="#00cec9"/>
+                            <path d="M75 95 L85 105 M85 95 L75 105" stroke="#fff" stroke-width="2"/>
+                            <rect x="110" y="90" width="30" height="30" rx="8" fill="#6c5ce7"/>
+                            <rect x="115" y="95" width="20" height="2" fill="#fff"/>
+                            <rect x="115" y="100" width="20" height="2" fill="#fff"/>
+                            <rect x="115" y="105" width="20" height="2" fill="#fff"/>
+                            <rect x="30" y="130" width="140" height="4" rx="2" fill="#e0e0e0"/>
+                        </svg>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>App Mobile UI</h3>
+                        <p>Interface de usuário para aplicativo de produttividade. Design minimalista com foco em usabilidade.</p>
+                        <div class="portfolio-meta">
+                            <span>2024</span>
+                            <div class="tools">
+                                <span>Figma</span>
+                                <span>Adobe XD</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="galeria">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galeria de Trabalhos</h2>
+                <p>Amostra diversificada dos nossos projetos criativos.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item nature">
+                    <div class="content">
+                        <div class="icon">🌿</div>
+                        <div class="title">Ilustração Botânica</div>
+                    </div>
+                </div>
+                <div class="gallery-item abstract">
+                    <div class="content">
+                        <div class="icon">✨</div>
+                        <div class="title">Arte Abstrata</div>
+                    </div>
+                </div>
+                <div class="gallery-item portrait">
+                    <div class="content">
+                        <div class="icon">👤</div>
+                        <div class="title">Retrato Digital</div>
+                    </div>
+                </div>
+                <div class="gallery-item architecture">
+                    <div class="content">
+                        <div class="icon">🏗️</div>
+                        <div class="title">Visualização 3D</div>
+                    </div>
+                </div>
+                <div class="gallery-item product">
+                    <div class="content">
+                        <div class="icon">📦</div>
+                        <div class="title">Embalagem</div>
+                    </div>
+                </div>
+                <div class="gallery-item tech">
+                    <div class="content">
+                        <div class="icon">💻</div>
+                        <div class="title">Design Digital</div>
+                    </div>
+                </div>
+                <div class="gallery-item abstract">
+                    <div class="content">
+                        <div class="icon">🎨</div>
+                        <div class="title">Pintura Digital</div>
+                    </div>
+                </div>
+                <div class="gallery-item nature">
+                    <div class="content">
+                        <div class="icon">🌸</div>
+                        <div class="title">Flores Vetoriais</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="servicos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Serviços</h2>
+                <p>O que podemos criar para você.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon illustration">
+                        <span style="color: white; font-size: 2rem;">🎨</span>
+                    </div>
+                    <h4>Ilustração Digital</h4>
+                    <p>Personagens, cenários e elementos gráficos customizados para os mais diversos usos.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon graphic">
+                        <span style="color: white; font-size: 2rem;">📊</span>
+                    </div>
+                    <h4>Design Gráfico</h4>
+                    <p>Criação de materiais impressos e digitais: folders, banners, cartões e muito mais.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon ui">
+                        <span style="color: white; font-size: 2rem;">📱</span>
+                    </div>
+                    <h4>UI/UX Design</h4>
+                    <p>Interfaces intuitivas e bonitas para aplicativos e websites, com foco na experiência do usuário.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon branding">
+                        <span style="color: white; font-size: 2rem;">✏️</span>
+                    </div>
+                    <h4>Branding</h4>
+                    <p>Criação de identidade visual completa: logo, manual de marca, paleta de cores e tipografia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h3>Vamos criar algo incrível juntos?</h3>
+                <p>Tenha acesso a designs exclusivos e personalizados para elevar o nível do seu negócio ou projeto pessoal.</p>
+                <a href="../#contato" class="btn">Entrar em Contato</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#portfolio">Portfólio</a>
+                <a href="#galeria">Galeria</a>
+                <a href="#servicos">Serviços</a>
+                <a href="../">Inicio</a>
+                <a href="#">Behance</a>
+                <a href="#">Instagram</a>
+            </div>
+            <p>&copy; 2024 Vinícius Siqueira | Designer Criativo</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add hover effect to gallery items
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        galleryItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'scale(1.05) rotate(2deg)';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'scale(1) rotate(0)';
+            });
+        });
+    </script>
+</body>
+</html>
