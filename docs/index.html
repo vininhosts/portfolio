@@ -3,290 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agência Criativa - Soluções Digitais</title>
-    <meta name="description" content="Agência especializada em desenvolvimento web, design e marketing digital para seu negócio">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Portfólio - Vinicius Siqueira</title>
+    <meta name="description" content="Portfólio de projetos - Escolha um projeto para visualizar">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --bg: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light: #e9ecef;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+            text-decoration: none;
+        }
+        
+        .logo span { color: var(--primary); }
+        
+        main { padding: 60px 0; }
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .hero h1 span { color: var(--primary); }
+        
+        .hero p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .section-header p {
+            font-size: 16px;
+            color: var(--gray);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--light);
+            text-align: center;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary);
+        }
+        
+        .project-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--primary), #3f37c9);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: var(--white);
+        }
+        
+        .project-card h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .project-card p {
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .project-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            background: var(--light);
+            color: var(--gray);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            margin: 0 5px 10px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-secondary {
+            background: var(--light);
+            color: var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        
+        .footer-section a:hover { color: var(--primary); }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: #a0a0a0;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .footer-content { flex-direction: column; text-align: center; }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 28px; }
+            .section-header h2 { font-size: 26px; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header / Navbar -->
-    <header class="header">
+    <header>
         <div class="container">
-            <a href="index.html" class="logo">Criativa<span>Digital</span></a>
-            <nav class="navbar">
-                <ul class="nav-links">
-                    <li><a href="#inicio" class="active">Início</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#portifolio">Portifólio</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+            <a href="./" class="logo">Vinicius<span>Portfólio</span></a>
+            <nav>
+                <a href="#projetos" class="btn btn-secondary">Ver Projetos</a>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
+    <main>
         <div class="container">
-            <div class="hero-content">
-                <h1>Transformamos Ideias em Soluções Digitais</h1>
-                <p>Criamos sites incríveis, aplicativos modernos e estratégias de marketing que impulsionam seus negócios.</p>
-                <div class="hero-buttons">
-                    <a href="#contato" class="btn btn-primary">Fale Conosco</a>
-                    <a href="#servicos" class="btn btn-secondary">Nossos Serviços</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600" alt="Equipe de desenvolvimento">
-            </div>
-        </div>
-    </section>
+            <section class="hero">
+                <h1>Bem-vindo ao meu <span>Portfólio</span></h1>
+                <p>Freelancer especializado em desenvolvimento web, design e soluções digitais. Escolha um projeto abaixo para ver meu trabalho.</p>
+            </section>
 
-    <!-- Services Section -->
-    <section id="servicos" class="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>Nossos Serviços</h2>
-                <p>Oferecemos soluções completas para sua presença digital</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">💻</div>
-                    <h3>Desenvolvimento Web</h3>
-                    <p>Criação de sites responsivos e modernos com as melhores tecnologias do mercado.</p>
-                    <a href="#" class="btn-small">Saiba Mais</a>
+            <section id="projetos">
+                <div class="section-header">
+                    <h2>Meus Projetos</h2>
+                    <p>Selecione um projeto para visualizar os detalhes</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🎨</div>
-                    <h3>Design UI/UX</h3>
-                    <p>Interfaces intuitivas e atraentes que proporcionam ótima experiência ao usuário.</p>
-                    <a href="#" class="btn-small">Saiba Mais</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📈</div>
-                    <h3>Marketing Digital</h3>
-                    <p>Estratégias de marketing para aumentar sua visibilidade e vendas online.</p>
-                    <a href="#" class="btn-small">Saiba Mais</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📱</div>
-                    <h3>Aplicativos Mobile</h3>
-                    <p>Desenvolvimento de aplicativos para iOS e Android sob medida.</p>
-                    <a href="#" class="btn-small">Saiba Mais</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">⚡</div>
-                    <h3>Otimização SEO</h3>
-                    <p>Melhore seu posicionamento nos buscadores e atraia mais clientes.</p>
-                    <a href="#" class="btn-small">Saiba Mais</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🛒</div>
-                    <h3>E-commerce</h3>
-                    <p>Lojas virtuais completas com integração de pagamento e gestão.</p>
-                    <a href="#" class="btn-small">Saiba Mais</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="sobre" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600" alt="Escritório moderno">
-                </div>
-                <div class="about-text">
-                    <div class="section-header">
-                        <h2>Sobre Nós</h2>
-                        <p>Conheça nossa história e valores</p>
+                <div class="projects-grid">
+                    <!-- PROJECT 1 -->
+                    <div class="project-card">
+                        <div class="project-icon">🏢</div>
+                        <h3>Agência Criativa Digital</h3>
+                        <p>Site institucional completo para agência digital com serviços, portifólio e formulário de contato.</p>
+                        <div>
+                            <span class="project-tag">HTML/CSS</span>
+                            <span class="project-tag">Responsivo</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                        <a href="html-css/index.html" class="btn">Ver Projeto</a>
                     </div>
-                    <p>Somos uma agência digital fundada em 2020 com o objetivo de ajudar empresas a se destacarem no mundo digital. Nossa equipe é composta por profissionais apaixonados por tecnologia e design.</p>
-                    <p>Ao longo dos anos, já atendemos mais de 200 clientes em diversos segmentos, entregando soluções personalizadas que realmente fazem a diferença.</p>
-                    <div class="stats">
-                        <div class="stat-item">
-                            <span class="stat-number">200+</span>
-                            <span class="stat-label">Clientes Satisfetos</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">500+</span>
-                            <span class="stat-label">Projetos Entregues</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">10</span>
-                            <span class="stat-label">Anos de Experiência</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Portfolio Section -->
-    <section id="portifolio" class="portfolio">
-        <div class="container">
-            <div class="section-header">
-                <h2>Nosso Portifólio</h2>
-                <p>Confira alguns dos nossos projetos recentes</p>
-            </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400" alt="Projeto 1">
-                    <div class="portfolio-overlay">
-                        <h3>Loja Virtual Moda</h3>
-                        <p>E-commerce completo com integração de pagamento</p>
-                        <a href="#" class="btn-small">Ver Projeto</a>
+                    <!-- PROJECT 2 -->
+                    <div class="project-card">
+                        <div class="project-icon">💼</div>
+                        <h3>Tema WordPress</h3>
+                        <p>Tema customizado para WordPress com personalizador integrado, widgets e suporte a menus.</p>
+                        <div>
+                            <span class="project-tag">WordPress</span>
+                            <span class="project-tag">PHP</span>
+                            <span class="project-tag">Tema</span>
+                        </div>
+                        <a href="wordpress-theme/" class="btn">Ver Código</a>
                     </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400" alt="Projeto 2">
-                    <div class="portfolio-overlay">
-                        <h3>Sistema de Gestão</h3>
-                        <p>Plataforma de gestão para empresas</p>
-                        <a href="#" class="btn-small">Ver Projeto</a>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400" alt="Projeto 3">
-                    <div class="portfolio-overlay">
-                        <h3>Aplicativo Mobile</h3>
-                        <p>App para delivery de alimentos</p>
-                        <a href="#" class="btn-small">Ver Projeto</a>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400" alt="Projeto 4">
-                    <div class="portfolio-overlay">
-                        <h3>Site Institucional</h3>
-                        <p>Site para empresa de advocacia</p>
-                        <a href="#" class="btn-small">Ver Projeto</a>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400" alt="Projeto 5">
-                    <div class="portfolio-overlay">
-                        <h3>Blog de Viagens</h3>
-                        <p>Plataforma de conteúdo para viajantes</p>
-                        <a href="#" class="btn-small">Ver Projeto</a>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=400" alt="Projeto 6">
-                    <div class="portfolio-overlay">
-                        <h3>Dashboard Analytics</h3>
-                        <p>Painel de controle com visualização de dados</p>
-                        <a href="#" class="btn-small">Ver Projeto</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contato" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Entre em Contato</h2>
-                <p>Estamos prontos para ajudar no seu próximo projeto</p>
-            </div>
-            <div class="contact-content">
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" placeholder="Seu Nome" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Seu Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" placeholder="Seu Telefone">
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-                </form>
-                <div class="contact-info">
-                    <div class="info-item">
-                        <div class="info-icon">📍</div>
-                        <div class="info-text">
-                            <h4>Endereço</h4>
-                            <p>Rua das Flores, 123 - Centro<br>São Paulo - SP, 01234-567</p>
+                    <!-- PROJECT 3 - ADD YOUR PROJECTS HERE -->
+                    <div class="project-card">
+                        <div class="project-icon">➕</div>
+                        <h3>Novo Projeto</h3>
+                        <p>Adicione seus próprios projetos aqui.</p>
+                        <div>
+                            <span class="project-tag">Em Breve</span>
                         </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">📞</div>
-                        <div class="info-text">
-                            <h4>Telefone</h4>
-                            <p>(11) 1234-5678<br>(11) 98765-4321</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">✉️</div>
-                        <div class="info-text">
-                            <h4>Email</h4>
-                            <p>contato@criativadigital.com.br<br>suporte@criativadigital.com.br</p>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <h4>Redes Sociais</h4>
-                        <div class="social-icons">
-                            <a href="#" class="social-icon">Facebook</a>
-                            <a href="#" class="social-icon">Instagram</a>
-                            <a href="#" class="social-icon">LinkedIn</a>
-                            <a href="#" class="social-icon">Twitter</a>
-                        </div>
+                        <a href="#" class="btn btn-secondary">Adicionar</a>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
-    </section>
+    </main>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Criativa Digital</h3>
-                    <p>Transformando ideias em soluções digitais desde 2020.</p>
+                    <h4>Vinicius Siqueira</h4>
+                    <p>Freelancer - Desenvolvedor Web</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Links Rápidos</h4>
-                    <ul>
-                        <li><a href="#inicio">Início</a></li>
-                        <li><a href="#servicos">Serviços</a></li>
-                        <li><a href="#sobre">Sobre</a></li>
-                        <li><a href="#portifolio">Portifólio</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Serviços</h4>
-                    <ul>
-                        <li><a href="#">Desenvolvimento Web</a></li>
-                        <li><a href="#">Design UI/UX</a></li>
-                        <li><a href="#">Marketing Digital</a></li>
-                        <li><a href="#">Aplicativos Mobile</a></li>
-                        <li><a href="#">Otimização SEO</a></li>
-                    </ul>
+                    <h4>Links</h4>
+                    <p><a href="#projetos">Projetos</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Criativa Digital. Todos os direitos reservados.</p>
+                <p>&copy; 2024 Vinicius Siqueira. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
-
-    <!-- Back to Top Button -->
-    <a href="#inicio" class="back-to-top">↑</a>
-
-    <script src="script.js"></script>
 </body>
 </html>
