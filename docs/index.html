@@ -98,6 +98,17 @@
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
         }
+
+        /* Esconder tudo exceto websites */
+        .project-card:not([data-category="website"]) {
+            display: none !important;
+        }
+
+        /* Esconder filtros desnecessários */
+        .filter-btn[data-filter="graphic"],
+        .filter-btn[data-filter="presentation"] {
+            display: none !important;
+        }
         
         .project-card {
             background: var(--white);
