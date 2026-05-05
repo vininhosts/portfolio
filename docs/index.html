@@ -318,6 +318,17 @@
             .hero h1 { font-size: 28px; }
             .section-header h2 { font-size: 26px; }
         }
+
+        /* Esconder tudo exceto websites e northstar */
+        .project-card:not([data-category="website"]):not([data-category="northstar"]) {
+            display: none !important;
+        }
+
+        /* Esconder filtros desnecessários */
+        .filter-btn[data-filter="graphic"],
+        .filter-btn[data-filter="presentation"] {
+            display: none !important;
+        }
     </style>
 </head>
 <body>
@@ -459,7 +470,7 @@
                     </div>
 
                     <!-- PRESENTATION 3 - Northstar Labs -->
-                    <div class="project-card" data-category="presentation">
+                    <div class="project-card" data-category="northstar">
                         <div class="project-icon">⭐</div>
                         <h3>Northstar Labs - Crescimento de Produto</h3>
                         <p>Estudo de caso completo de estratégia de crescimento para SaaS com análise de mercado, KPIs, otimização de funil e resultados: 180% mais receita, +35% retenção.</p>
