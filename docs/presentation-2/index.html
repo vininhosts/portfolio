@@ -3,976 +3,1621 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pitch Deck: EcoApp - Solução Sustentável</title>
-    <meta name="description" content="Pitch deck para investidores - Apresentação do produto EcoApp">
+    <title>EcoApp Pitch Deck | Apresentação para Investidores</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #27ae60;
+            --primary-dark: #229954;
+            --secondary: #2c3e50;
+            --accent: #e74c3c;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --white: #ffffff;
+            --gray: #95a5a6;
+            --text: #333;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #27ae60;
-            --secondary: #2ecc71;
-            --accent: #f39c12;
-            --dark: #2c3e50;
-            --light: #ecf0f1;
-            --white: #ffffff;
-            --gray: #7f8c8d;
-            --dark-gray: #34495e;
-        }
-
         body {
             font-family: 'Montserrat', sans-serif;
-            background: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
+            background: #f5f7fa;
+            color: var(--text);
         }
 
-        .container {
-            max-width: 1000px;
+        .slide-container {
+            max-width: 1400px;
             margin: 0 auto;
-        }
-
-        .presentation {
-            background: var(--white);
-            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .slides {
+            min-height: 100vh;
             position: relative;
         }
 
         .slide {
             width: 100%;
-            min-height: 600px;
-            padding: 60px 80px;
+            min-height: 100vh;
+            padding: 40px;
             display: none;
+            align-items: center;
+            justify-content: center;
             position: relative;
+            overflow: hidden;
         }
 
         .slide.active {
-            display: block;
-        }
-
-        /* Cover Slide */
-        .slide.cover {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--white);
-            text-align: center;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+        }
+
+        .slide-content {
+            max-width: 1200px;
+            width: 100%;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ============= SLIDE STYLES ============= */
+        
+        /* Cover Slide */
+        .slide-1 {
+            background: linear-gradient(135deg, #1a5f4f 0%, #2d8a67 50%, #4ade80 100%);
+            color: white;
+            display: flex;
             align-items: center;
+            justify-content: center;
+            text-align: center;
         }
 
-        .slide.cover .logo {
-            font-size: 48px;
+        .slide-1 h1 {
+            font-size: 4rem;
             font-weight: 800;
-            margin-bottom: 10px;
-            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.1;
         }
 
-        .slide.cover h1 {
-            font-size: 42px;
-            font-weight: 700;
+        .slide-1 .subtitle {
+            font-size: 1.5rem;
+            opacity: 0.95;
             margin-bottom: 10px;
-        }
-
-        .slide.cover .tagline {
-            font-size: 18px;
-            opacity: 0.9;
-            margin-bottom: 40px;
             font-weight: 300;
         }
 
-        /* Problem Slide */
-        .slide.problem {
-            background: var(--white);
+        .slide-1 .tagline {
+            font-size: 1.2rem;
+            opacity: 0.85;
+            margin-bottom: 40px;
         }
 
-        .slide.problem h2 {
-            font-size: 42px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 40px;
+        .slide-1 .meta {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        /* Problem Slide */
+        .slide-2 {
+            background: white;
+        }
+
+        .problem-header {
             text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .problem-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .problem-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
         }
 
         .problem-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
         .problem-card {
-            background: var(--light);
-            padding: 30px;
+            background: #f8f9fa;
+            padding: 35px 30px;
             border-radius: 15px;
             text-align: center;
+            border-left: 5px solid var(--accent);
+            transition: transform 0.3s;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-8px);
         }
 
         .problem-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #fee 0%, #fdd 100%);
         }
 
-        .problem-card h3 {
-            font-size: 18px;
+        .problem-card h4 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
             font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--dark);
         }
 
         .problem-card p {
-            font-size: 14px;
             color: var(--gray);
+            font-size: 0.95rem;
             line-height: 1.6;
         }
 
         /* Solution Slide */
-        .slide.solution {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--white);
-            text-align: center;
+        .slide-3 {
+            background: linear-gradient(135deg, #f0f4f8 0%, #e6ebf2 100%);
         }
 
-        .slide.solution h2 {
-            font-size: 42px;
-            font-weight: 700;
+        .solution-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .solution-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .solution-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .solution-showcase {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .solution-text {
+            flex: 1;
+            min-width: 350px;
+        }
+
+        .solution-text h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .solution-text p {
+            margin-bottom: 20px;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .solution-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .solution-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            padding-left: 35px;
+            position: relative;
+        }
+
+        .solution-list li:last-child {
+            border-bottom: none;
+        }
+
+        .solution-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .app-mockup {
+            flex: 1;
+            min-width: 350px;
+            background: #333;
+            border-radius: 40px;
+            padding: 15px 5px 25px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .app-screen {
+            background: white;
+            border-radius: 35px;
+            overflow: hidden;
+            height: 600px;
+        }
+
+        .app-header {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .app-status {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .app-content {
+            padding: 25px;
+        }
+
+        .impact-card {
+            background: linear-gradient(135deg, var(--primary) 0%, #229954 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
             margin-bottom: 20px;
         }
 
-        .slide.solution p {
-            font-size: 18px;
+        .impact-card h4 {
+            font-size: 1rem;
+            margin-bottom: 10px;
             opacity: 0.95;
-            max-width: 700px;
-            margin: 0 auto 40px;
         }
 
-        .solution-features {
+        .impact-stat {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .impact-stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .impact-stat-label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .feature-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
         }
 
         .feature-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 25px;
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
+            text-align: center;
+            padding: 10px;
         }
 
-        .feature-item h4 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 10px;
+        .feature-icon {
+            width: 45px;
+            height: 45px;
+            margin: 0 auto 8px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
         }
 
-        .feature-item p {
-            font-size: 14px;
+        .feature-name {
+            font-size: 0.7rem;
+            color: white;
             opacity: 0.9;
         }
 
         /* Product Slide */
-        .slide.product {
-            background: var(--white);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
+        .slide-4 {
+            background: white;
         }
 
-        .product-content h2 {
-            font-size: 36px;
-            font-weight: 700;
+        .product-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .product-header h2 {
+            font-size: 2.5rem;
             color: var(--primary);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        .product-content p {
-            font-size: 16px;
+        .product-header p {
             color: var(--gray);
-            line-height: 1.8;
-            margin-bottom: 20px;
+            font-size: 1.1rem;
         }
 
-        .product-features {
-            list-style: none;
-            margin-top: 20px;
+        .product-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
-        .product-features li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-            color: var(--gray);
+        .product-card {
+            background: #f8f9fa;
+            padding: 30px 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
         }
 
-        .product-features li::before {
-            content: "✓";
-            color: var(--secondary);
-            font-weight: bold;
+        .product-card:hover {
+            transform: translateY(-8px);
         }
 
-        .product-visual {
-            height: 400px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
+        .product-card .icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
             border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
-            font-size: 24px;
-            font-weight: 700;
+            font-size: 2rem;
         }
 
-        /* Market Slide */
-        .slide.market {
-            background: var(--white);
-        }
+        .product-card .icon.map { background: #d5f5e3; }
+        .product-card .icon.dashboard { background: #d6eaf8; }
+        .product-card .icon.rewards { background: #f9e79f; }
+        .product-card .icon.education { background: #d5f5e3; }
 
-        .slide.market h2 {
-            font-size: 36px;
-            font-weight: 700;
+        .product-card h4 {
             color: var(--primary);
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .market-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .stat-card {
-            background: var(--light);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 48px;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        .stat-label {
-            font-size: 14px;
-            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
             font-weight: 600;
         }
 
-        /* Business Model Slide */
-        .slide.model {
-            background: var(--light);
+        .product-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
 
-        .slide.model h2 {
-            font-size: 36px;
+        /* Market Slide */
+        .slide-5 {
+            background: linear-gradient(135deg, var(--secondary) 0%, #1a252f 100%);
+            color: white;
+        }
+
+        .market-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .pie-chart-container {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .pie-chart {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--primary) 0% 35%,
+                #5dade2 35% 60%,
+                var(--accent) 60% 100%
+            );
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pie-chart::before {
+            content: '';
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            background: var(--white);
+            border-radius: 50%;
+        }
+
+        .pie-chart-label {
+            position: absolute;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 40px;
+        }
+
+        .market-legend {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .legend-color {
+            width: 40px;
+            height: 25px;
+            border-radius: 6px;
+        }
+
+        .legend-color.primary { background: var(--primary); }
+        .legend-color.secondary { background: #5dade2; }
+        .legend-color.accent { background: var(--accent); }
+
+        .legend-content span {
+            display: block;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .legend-content p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        .audience-section {
+            margin-top: 50px;
             text-align: center;
+        }
+
+        .audience-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+
+        .audience-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .audience-stat {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .audience-stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .audience-stat-label {
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        /* Business Model Slide */
+        .slide-6 {
+            background: white;
+        }
+
+        .model-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .model-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
         }
 
         .model-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
         .model-card {
-            background: var(--white);
-            padding: 30px;
+            background: #f8f9fa;
+            padding: 30px 25px;
             border-radius: 15px;
             text-align: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .model-card:hover {
+            transform: translateY(-8px);
         }
 
         .model-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        .model-card h3 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .model-card p {
-            font-size: 14px;
-            color: var(--gray);
-            line-height: 1.6;
-        }
-
-        /* Roadmap Slide */
-        .slide.roadmap {
-            background: var(--white);
-        }
-
-        .slide.roadmap h2 {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .roadmap-timeline {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .roadmap-item {
-            text-align: center;
-        }
-
-        .roadmap-quarter {
-            font-size: 14px;
-            color: var(--gray);
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .roadmap-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--light);
-            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 15px;
-            font-size: 24px;
+            font-size: 2rem;
         }
 
-        .roadmap-title {
-            font-size: 14px;
+        .model-icon.freemium { background: #d5f5e3; color: var(--primary); }
+        .model-icon.b2b { background: #d6eaf8; color: var(--secondary); }
+        .model-icon.marketplace { background: #fadbd8; color: var(--accent); }
+        .model-icon.ads { background: #ead7f5; color: #8e44ad; }
+
+        .model-card h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
             font-weight: 600;
-            color: var(--dark);
+        }
+
+        .model-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Traction Slide */
+        .slide-7 {
+            background: linear-gradient(135deg, var(--accent) 0%, #c0392b 100%);
+            color: white;
+        }
+
+        .traction-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .traction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .traction-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .traction-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .traction-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* Roadmap Slide */
+        .slide-8 {
+            background: white;
+        }
+
+        .roadmap-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .roadmap {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .roadmap::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary);
+        }
+
+        .roadmap-item {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .roadmap-dot {
+            position: absolute;
+            left: 20px;
+            top: 15px;
+            width: 20px;
+            height: 20px;
+            background: var(--secondary);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--secondary);
+        }
+
+        .roadmap-content {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin-left: 60px;
+            flex: 1;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .roadmap-period {
+            font-size: 0.8rem;
+            color: var(--secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .roadmap-content h4 {
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .roadmap-content p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
 
         /* Team Slide */
-        .slide.team {
-            background: var(--light);
+        .slide-9 {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            color: white;
         }
 
-        .slide.team h2 {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 40px;
+        .team-header {
             text-align: center;
+            margin-bottom: 50px;
         }
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
 
-        .team-member {
-            background: var(--white);
-            padding: 20px;
+        .team-card {
+            background: rgba(255,255,255,0.05);
             border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
             text-align: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .member-photo {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
+        .team-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
-            font-size: 32px;
+            font-size: 4rem;
         }
 
-        .member-name {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 5px;
-            color: var(--dark);
+        .team-info {
+            padding: 25px;
         }
 
-        .member-role {
-            font-size: 14px;
-            color: var(--gray);
+        .team-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .team-info p {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .team-role {
+            background: rgba(255,255,255,0.15);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #bdc3c7;
+            display: inline-block;
         }
 
         /* Investment Slide */
-        .slide.investment {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--white);
-            text-align: center;
+        .slide-10 {
+            background: white;
         }
 
-        .slide.investment h2 {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 20px;
+        .investment-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .investment-section {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        .investment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .investment-card {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            border: 2px solid #eee;
+        }
+
+        .investment-card.featured {
+            border-color: var(--primary);
+            background: #f0fff4;
         }
 
         .investment-amount {
-            font-size: 64px;
+            font-size: 2.2rem;
             font-weight: 800;
-            margin: 20px 0;
+            color: var(--primary);
+            margin-bottom: 8px;
         }
 
-        .investment-details {
-            font-size: 18px;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
-
-        .investment-packages {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .package-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 25px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-
-        .package-name {
-            font-size: 16px;
+        .investment-type {
+            font-size: 1rem;
+            color: var(--gray);
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
-        .package-value {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 10px;
+        .investment-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 25px;
         }
 
-        /* Contact/CTA Slide */
-        .slide.contact {
-            background: var(--white);
-            text-align: center;
+        .investment-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+            color: var(--gray);
         }
 
-        .slide.contact h2 {
-            font-size: 42px;
-            font-weight: 700;
+        .investment-features li:last-child {
+            border-bottom: none;
+        }
+
+        .investment-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .investment-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .allocation-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .allocation-section h4 {
             color: var(--primary);
             margin-bottom: 20px;
         }
 
-        .slide.contact p {
-            font-size: 18px;
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
-
-        .contact-info {
+        .allocation-item {
             display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 0.95rem;
         }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+        .allocation-item:last-child {
+            border-bottom: none;
         }
 
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 20px;
+        .allocation-item strong {
+            color: var(--primary);
         }
 
-        .contact-details {
-            text-align: left;
+        /* Contact Slide */
+        .slide-11 {
+            background: linear-gradient(135deg, var(--primary) 0%, #229954 100%);
+            color: white;
         }
 
-        .contact-details h4 {
-            font-size: 14px;
-            color: var(--gray);
-            margin-bottom: 5px;
+        .contact-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        .contact-details p {
-            font-size: 16px;
+        .contact-title {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .contact-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .contact-quote {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 35px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .contact-quote p {
+            font-size: 1.4rem;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .contact-quote-author {
             font-weight: 600;
-            color: var(--dark);
-            margin: 0;
+            opacity: 0.85;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: white;
+            color: var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         /* Navigation */
-        .slide-navigation {
+        .slide-nav {
             position: fixed;
-            bottom: 30px;
-            left: 0;
-            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 0 50px;
+            padding: 0 30px;
             z-index: 1000;
+            pointer-events: none;
         }
 
         .nav-arrow {
             width: 50px;
             height: 50px;
-            background: var(--primary);
-            color: var(--white);
+            background: rgba(255,255,255,0.95);
             border: none;
             border-radius: 50%;
-            font-size: 24px;
+            font-size: 1.5rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            pointer-events: auto;
         }
 
         .nav-arrow:hover {
-            background: var(--secondary);
+            background: var(--primary);
+            color: white;
             transform: scale(1.1);
         }
 
         .nav-arrow:disabled {
-            opacity: 0.5;
+            background: rgba(255,255,255,0.6);
             cursor: not-allowed;
+            opacity: 0.5;
         }
 
         .slide-counter {
-            font-size: 16px;
-            color: var(--dark);
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.95);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            color: var(--secondary);
             font-weight: 600;
-        }
-
-        /* Header */
-        .presentation-header {
-            background: var(--white);
-            padding: 20px 50px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
             z-index: 1000;
         }
 
-        .presentation-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--dark);
-        }
-
-        .presentation-info {
-            font-size: 14px;
-            color: var(--gray);
-        }
-
-        /* Print/PDF Styles */
+        /* Print Styles */
         @media print {
-            .slide-navigation,
-            .presentation-header {
+            .slide-nav,
+            .slide-counter,
+            .nav-arrow {
                 display: none !important;
             }
-            
             .slide {
-                display: block !important;
-                page-break-after: always;
                 min-height: auto;
-                padding: 40px;
+                page-break-after: always;
             }
-            
-            .slide.cover,
-            .slide.solution,
-            .slide.investment {
-                background: var(--primary) !important;
-            }
-            
-            .product {
+            .slide.active {
                 display: block !important;
             }
-            
-            .product-content,
-            .product-visual {
-                width: 100% !important;
+            body {
+                background: white;
+            }
+            .slide-1,
+            .slide-3,
+            .slide-5,
+            .slide-7,
+            .slide-9,
+            .slide-11 {
+                background: white !important;
+                color: var(--text) !important;
             }
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .slide {
-                padding: 40px 30px;
-                min-height: 500px;
-            }
-            
-            .slide.cover .logo { font-size: 36px; }
-            .slide.cover h1 { font-size: 32px; }
-            .slide.cover .tagline { font-size: 16px; }
-            
-            .problem-grid { grid-template-columns: 1fr; }
-            .solution-features { grid-template-columns: 1fr; }
-            .product { display: block; }
-            .product-content,
-            .product-visual { width: 100%; }
-            .market-stats { grid-template-columns: 1fr; }
-            .model-grid { grid-template-columns: 1fr; }
-            .roadmap-timeline { grid-template-columns: repeat(2, 1fr); }
-            .team-grid { grid-template-columns: 1fr; }
-            .investment-packages { grid-template-columns: 1fr; }
-            .contact-info { flex-direction: column; gap: 20px; }
-            
-            .contact-item {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .presentation {
-                border-radius: 0;
-            }
-            
-            .slide {
                 padding: 30px 20px;
-                min-height: 450px;
             }
             
-            .slide-navigation {
-                padding: 0 20px;
+            .slide-1 h1 {
+                font-size: 2.8rem;
+            }
+            
+            .problem-grid,
+            .product-showcase,
+            .model-grid,
+            .traction-grid,
+            .team-grid,
+            .investment-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .solution-showcase,
+            .market-content,
+            .case-study {
+                flex-direction: column;
+            }
+            
+            .app-mockup {
+                margin: 20px auto;
+            }
+            
+            .roadmap::before {
+                left: 20px;
+            }
+            
+            .roadmap-dot {
+                left: 10px;
+            }
+            
+            .roadmap-content {
+                margin-left: 50px;
+            }
+            
+            .comparison-table {
+                overflow-x: auto;
             }
             
             .nav-arrow {
-                width: 45px;
-                height: 45px;
-                font-size: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .slide-counter {
+                font-size: 0.85rem;
+                padding: 10px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .slide-1 h1 {
+                font-size: 2.2rem;
+            }
+            
+            .slide-1 .meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .app-mockup {
+                width: 240px;
+            }
+            
+            .app-screen {
+                height: 480px;
+            }
+            
+            .contact-title {
+                font-size: 2.2rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="presentation-header">
-        <div class="presentation-title">EcoApp - Pitch Deck</div>
-        <div class="presentation-info">Apresentação para Investidores - 2024</div>
-    </div>
-
-    <div class="presentation">
-        <div class="slides">
-            <!-- Slide 1: Cover -->
-            <div class="slide cover active" data-slide="1">
-                <div class="logo">ECOAPP</div>
-                <h1>Inovação Sustentável</h1>
-                <div class="tagline">Conectando pessoas a um futuro mais verde</div>
+    <div class="slide-container">
+        <!-- Slide 1: Cover -->
+        <div class="slide slide-1 active" data-slide="1">
+            <div class="slide-content">
+                <h1>EcoApp</h1>
+                <p class="subtitle">A solução sustentável para o seu dia a dia</p>
+                <p class="tagline">Conectando pessoas a práticas que mudam o mundo</p>
+                <div class="meta">
+                    <span>Pitch Deck para Investidores</span>
+                    <span>Outubro 2024</span>
+                </div>
             </div>
+        </div>
 
-            <!-- Slide 2: Problem -->
-            <div class="slide problem" data-slide="2">
-                <h2>O Problema</h2>
+        <!-- Slide 2: The Problem -->
+        <div class="slide slide-2" data-slide="2">
+            <div class="slide-content">
+                <div class="problem-header">
+                    <h2>O Problema</h2>
+                    <p>O mundo enfrenta uma crise de sustentabilidade sem precedentes</p>
+                </div>
                 <div class="problem-grid">
                     <div class="problem-card">
-                        <div class="problem-icon">🌍</div>
-                        <h3>Poluição</h3>
-                        <p>Mais de 8 milhões de toneladas de plástico são jogadas nos oceanos anualmente.</p>
-                    </div>
-                    <div class="problem-card">
                         <div class="problem-icon">🗑️</div>
-                        <h3>Desperdício</h3>
-                        <p>30% de todo alimento produzido é desperdiçado antes de chegar à mesa.</p>
+                        <h4>Resíduos em Excesso</h4>
+                        <p>O Brasil produz mais de 80 milhões de toneladas de lixo por ano, mas apenas 4% é reciclado corretamente. A maior parte vai para aterros sanitários.</p>
                     </div>
                     <div class="problem-card">
                         <div class="problem-icon">💨</div>
-                        <h3>Emissões</h3>
-                        <p>As emissões de CO2 atingiram níveis recorde, ameaçando nosso planeta.</p>
+                        <h4>Poluição Urbana</h4>
+                        <p>As cidades brasileiras estão entre as mais poluídas do mundo, com impactos diretos na saúde da população e na qualidade de vida.</p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="problem-icon">💸</div>
+                        <h4>Falta de Conscientização</h4>
+                        <p>70% dos brasileiros não sabem como descartar corretamente o lixo reciclável. A educação ambiental ainda é muito deficiente.</p>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Slide 3: Solution -->
-            <div class="slide solution" data-slide="3">
-                <h2>Nossa Solução</h2>
-                <p>O EcoApp é uma plataforma inovadora que conecta usuários a práticas sustentáveis, recompensando ações ecológicas e criando uma comunidade engajada na proteção do meio ambiente.</p>
-                <div class="solution-features">
-                    <div class="feature-item">
-                        <h4>📱 Aplicativo Intuitivo</h4>
-                        <p>Interface fácil de usar para registrar ações sustentáveis</p>
-                    </div>
-                    <div class="feature-item">
-                        <h4>🌱 Pontos Ecológicos</h4>
-                        <p>Sistema de recompensas por práticas sustentáveis</p>
-                    </div>
-                    <div class="feature-item">
-                        <h4>🤝 Comunidade</h4>
-                        <p>Conecte-se com outras pessoas compromissadas com a sustentabilidade</p>
-                    </div>
+        <!-- Slide 3: The Solution -->
+        <div class="slide slide-3" data-slide="3">
+            <div class="slide-content">
+                <div class="solution-header">
+                    <h2>A Solução: EcoApp</h2>
+                    <p>Plataforma que conecta pessoas a práticas sustentáveis de forma simples e efetiva</p>
                 </div>
-            </div>
-
-            <!-- Slide 4: Product -->
-            <div class="slide product" data-slide="4">
-                <div class="product-content">
-                    <h2>O Produto</h2>
-                    <p>Nosso aplicativo oferece uma experiência completa para quem quer fazer a diferença:</p>
-                    <ul class="product-features">
-                        <li>Registro de ações sustentáveis (reciclagem, economia de energia, etc.)</li>
-                        <li>Desafios semanais e mensais para toda a comunidade</li>
-                        <li>Catálogo de parceiros com descontos exclusivos</li>
-                        <li>Relatórios de impacto ambiental pessoal</li>
-                        <li>Mapa de pontos de coleta seletiva</li>
-                        <li>Educação ambiental com dicas e curiosidades</li>
-                    </ul>
-                </div>
-                <div class="product-visual">App Preview</div>
-            </div>
-
-            <!-- Slide 5: Market -->
-            <div class="slide market" data-slide="5">
-                <h2>Mercado</h2>
-                <div class="market-stats">
-                    <div class="stat-card">
-                        <div class="stat-value">2.1B</div>
-                        <div class="stat-label">Usuários de smartphone globalmente</div>
+                <div class="solution-showcase">
+                    <div class="solution-text">
+                        <h3>O que é o EcoApp?</h3>
+                        <p>
+                            EcoApp é um aplicativo mobile inovador que ajuda usuários a viver de forma mais sustentável através de:
+                        </p>
+                        <ul class="solution-list">
+                            <li>Localização de pontos de reciclagem próximos</li>
+                            <li>Acompanhamento do impacto ambiental positivo</li>
+                            <li>Sistema de recompensas por ações sustentáveis</li>
+                            <li>Educação ambiental gamificada</li>
+                        </ul>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-value">68%</div>
-                        <div class="stat-label">Pessoas preocupadas com sustentabilidade</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">$12B</div>
-                        <div class="stat-label">Mercado de apps de bem-estar</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">25%</div>
-                        <div class="stat-label">Crescimento anual do setor</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 6: Business Model -->
-            <div class="slide model" data-slide="6">
-                <h2>Modelo de Negócios</h2>
-                <div class="model-grid">
-                    <div class="model-card">
-                        <div class="model-icon">🛒</div>
-                        <h3>Marketplace</h3>
-                        <p>Comissão sobre vendas de produtos sustentáveis de parceiros</p>
-                    </div>
-                    <div class="model-card">
-                        <div class="model-icon">📺</div>
-                        <h3>Publicidade</h3>
-                        <p>Anúncios direcionados de marcas alinhadas com nossos valores</p>
-                    </div>
-                    <div class="model-card">
-                        <div class="model-icon">⭐</div>
-                        <h3>Premium</h3>
-                        <p>Assinatura com benefícios exclusivos para usuários</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 7: Traction -->
-            <div class="slide market" data-slide="7">
-                <h2>Tração</h2>
-                <div class="market-stats">
-                    <div class="stat-card">
-                        <div class="stat-value">50K+</div>
-                        <div class="stat-label">Usuários Ativos</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">150+</div>
-                        <div class="stat-label">Parceiros</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">5★</div>
-                        <div class="stat-label">Avaliação na App Store</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">300%</div>
-                        <div class="stat-label">Crescimento em 6 meses</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 8: Roadmap -->
-            <div class="slide roadmap" data-slide="8">
-                <h2>Roadmap</h2>
-                <div class="roadmap-timeline">
-                    <div class="roadmap-item">
-                        <div class="roadmap-quarter">Q1 2024</div>
-                        <div class="roadmap-icon">✅</div>
-                        <div class="roadmap-title">Lançamento MVP</div>
-                    </div>
-                    <div class="roadmap-item">
-                        <div class="roadmap-quarter">Q2 2024</div>
-                        <div class="roadmap-icon">🚀</div>
-                        <div class="roadmap-title">Expansão Nacional</div>
-                    </div>
-                    <div class="roadmap-item">
-                        <div class="roadmap-quarter">Q3 2024</div>
-                        <div class="roadmap-icon">🌎</div>
-                        <div class="roadmap-title">Internacionalização</div>
-                    </div>
-                    <div class="roadmap-item">
-                        <div class="roadmap-quarter">Q4 2024</div>
-                        <div class="roadmap-icon">💰</div>
-                        <div class="roadmap-title">Lucratividade</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 9: Team -->
-            <div class="slide team" data-slide="9">
-                <h2>Time</h2>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <div class="member-photo">👨</div>
-                        <div class="member-name">João Silva</div>
-                        <div class="member-role">CEO & Fundador</div>
-                    </div>
-                    <div class="team-member">
-                        <div class="member-photo">👩</div>
-                        <div class="member-name">Maria Oliveira</div>
-                        <div class="member-role">CTO</div>
-                    </div>
-                    <div class="team-member">
-                        <div class="member-photo">👨</div>
-                        <div class="member-name">Carlos Souza</div>
-                        <div class="member-role">CMO</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 10: Investment -->
-            <div class="slide investment" data-slide="10">
-                <h2>Investimento</h2>
-                <div class="investment-amount">R$ 2.5M</div>
-                <div class="investment-details">
-                    Buscamos investidores que acreditam no nosso potencial de transformar o mercado de sustentabilidade digital.
-                </div>
-                <div class="investment-packages">
-                    <div class="package-card">
-                        <div class="package-name">Seed Round</div>
-                        <div class="package-value">R$ 500K</div>
-                        <p>Participação: 5%</p>
-                    </div>
-                    <div class="package-card">
-                        <div class="package-name">Series A</div>
-                        <div class="package-value">R$ 1.5M</div>
-                        <p>Participação: 12%</p>
-                    </div>
-                    <div class="package-card">
-                        <div class="package-name">Series B</div>
-                        <div class="package-value">R$ 5M</div>
-                        <p>Participação: 20%</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 11: Contact -->
-            <div class="slide contact" data-slide="11">
-                <h2>Vamos Conversar</h2>
-                <p>Estamos sempre em busca de parceiros e investidores que compartilham da nossa visão de um futuro mais sustentável.</p>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <p>contato@ecoapp.com</p>
+                    <div class="app-mockup">
+                        <div class="phone-header">
+                            <span class="phone-time">09:41</span>
+                            <div class="phone-battery"></div>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div class="contact-details">
-                            <h4>Telefone</h4>
-                            <p>(11) 98765-4321</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">🌐</div>
-                        <div class="contact-details">
-                            <h4>Website</h4>
-                            <p>ecoapp.com.br</p>
+                        <div class="app-screen">
+                            <div class="app-header">
+                                <span>EcoApp</span>
+                                <span class="app-status">♻️</span>
+                            </div>
+                            <div class="app-content">
+                                <div class="impact-card">
+                                    <h4>Seu Impacto Hoje</h4>
+                                    <div class="impact-stat">
+                                        <span class="impact-stat-number">24</span>
+                                        <span class="impact-stat-label">Árvores Salvas</span>
+                                    </div>
+                                    <div class="impact-stat">
+                                        <span class="impact-stat-number">156</span>
+                                        <span class="impact-stat-label">Itens Reciclados</span>
+                                    </div>
+                                    <div class="impact-stat">
+                                        <span class="impact-stat-number">340kg</span>
+                                        <span class="impact-stat-label">CO2 Evitado</span>
+                                    </div>
+                                </div>
+                                <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                                    <h4 style="color: var(--primary); font-size: 0.95rem; margin-bottom: 10px;">Pontos de Reciclagem Próximos</h4>
+                                    <div class="feature-grid">
+                                        <div class="feature-item">
+                                            <div class="feature-icon">📍</div>
+                                            <div class="feature-name">Papel</div>
+                                        </div>
+                                        <div class="feature-item">
+                                            <div class="feature-icon">🥫</div>
+                                            <div class="feature-name">Metal</div>
+                                        </div>
+                                        <div class="feature-item">
+                                            <div class="feature-icon">🥤</div>
+                                            <div class="feature-name">Plástico</div>
+                                        </div>
+                                        <div class="feature-item">
+                                            <div class="feature-icon">📦</div>
+                                            <div class="feature-name">Vidro</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="background: var(--primary); color: white; padding: 12px; border-radius: 8px; text-align: center;">
+                                    <span style="font-size: 0.9rem;">🎁 124 Pontos | 500m de você</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="slide-navigation">
-            <button class="nav-arrow" onclick="previousSlide()" id="prevBtn">←</button>
-            <span class="slide-counter" id="counter">1 / 11</span>
-            <button class="nav-arrow" onclick="nextSlide()" id="nextBtn">→</button>
+        <!-- Slide 4: The Product -->
+        <div class="slide slide-4" data-slide="4">
+            <div class="slide-content">
+                <div class="product-header">
+                    <h2>O Produto</h2>
+                    <p>Recursos principais que tornam o EcoApp único</p>
+                </div>
+                <div class="product-showcase">
+                    <div class="product-card">
+                        <div class="icon map">📍</div>
+                        <h4>Mapa de Reciclagem Inteligente</h4>
+                        <p>Localize pontos de coleta seletiva, cooperativas, ecopontos e centros de reciclagem com filtros por tipo de material (papel, plástico, metal, vidro, eletrônicos).</p>
+                    </div>
+                    <div class="product-card">
+                        <div class="icon dashboard">📊</div>
+                        <h4>Dashboard Pessoal</h4>
+                        <p>Acompanhe em tempo real suas estatísticas: itens reciclados, CO2 economizado, árvores salvas, água poupada e muito mais. Compare com amigos e suba no ranking.</p>
+                    </div>
+                    <div class="product-card">
+                        <div class="icon rewards">🎁</div>
+                        <h4>Sistema de Recompensas</h4>
+                        <p>Ganhe pontos por cada ação sustentável e troque por descontos exclusivos em lojas parceiras eco-friendly. Parcerias com mais de 50 marcas comprometidas.</p>
+                    </div>
+                    <div class="product-card">
+                        <div class="icon education">📚</div>
+                        <h4>EcoEducação Gamificada</h4>
+                        <p>Aulas interativas, quizzes, desafios semanais e missões sobre sustentabilidade para toda a família. Aprenda brincando e vire um expert em reciclagem.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Market Size -->
+        <div class="slide slide-5" data-slide="5">
+            <div class="slide-content">
+                <div class="market-content">
+                    <div style="text-align: center; width: 100%; margin-bottom: 40px;">
+                        <h2>Tamanho do Mercado</h2>
+                        <p>Uma oportunidade bilionária à nossa frente</p>
+                    </div>
+                    <div class="pie-chart-container">
+                        <div class="pie-chart">
+                            <div class="pie-chart-label">100%</div>
+                        </div>
+                        <div class="market-legend">
+                            <div class="legend-item">
+                                <div class="legend-color primary"></div>
+                                <div class="legend-content">
+                                    <span>R$ 8,5 Bilhões</span>
+                                    <p>Mercado de apps mobile no Brasil (2024)</p>
+                                </div>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color secondary"></div>
+                                <div class="legend-content">
+                                    <span>R$ 2,1 Bilhões</span>
+                                    <p>Mercado de apps de sustentabilidade</p>
+                                </div>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color accent"></div>
+                                <div class="legend-content">
+                                    <span>45% AA</span>
+                                    <p>Crescimento anual do setor</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="audience-section">
+                        <h3>Nosso Público Alvo</h3>
+                        <div class="audience-stats">
+                            <div class="audience-stat">
+                                <div class="audience-stat-number">150M</div>
+                                <div class="audience-stat-label">Brasileiros com Smartphone</div>
+                            </div>
+                            <div class="audience-stat">
+                                <div class="audience-stat-number">60%</div>
+                                <div class="audience-stat-label">Jovens 18-35 anos</div>
+                            </div>
+                            <div class="audience-stat">
+                                <div class="audience-stat-number">80%</div>
+                                <div class="audience-stat-label">Classes A, B e C</div>
+                            </div>
+                            <div class="audience-stat">
+                                <div class="audience-stat-number">72%</div>
+                                <div class="audience-stat-label">Preocupados com Meio Ambiente</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Business Model -->
+        <div class="slide slide-6" data-slide="6">
+            <div class="slide-content">
+                <div class="model-header">
+                    <h2>Modelo de Negócio</h2>
+                    <p>Como vamos monetizar e escalar</p>
+                </div>
+                <div class="model-grid">
+                    <div class="model-card">
+                        <div class="model-icon freemium">📱</div>
+                        <h4>Freemium</h4>
+                        <p>Versão gratuita com recursos básicos. Versão Premium com recursos avançados: relatórios detalhados, descontos exclusivos, acesso a conteúdo exclusivo.</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon b2b">🏢</div>
+                        <h4>B2B - Empresas</h4>
+                        <p>Parcerias com empresas para programas de sustentabilidade corporativa. Plataforma white-label para prefeituras e organizações.</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon marketplace">🛒</div>
+                        <h4>Marketplace</h4>
+                        <p>Comissão sobre vendas de produtos sustentáveis dentro do app. Loja de produtos eco-friendly com mais de 200 fornecedores.</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon ads">📢</div>
+                        <h4>Publicidade</h4>
+                        <p>Anúncios de marcas eco-friendly alinhadas aos nossos valores. Patrocínios de desafios e eventos dentro da plataforma.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Traction -->
+        <div class="slide slide-7" data-slide="7">
+            <div class="slide-content">
+                <div class="traction-header">
+                    <h2>Tração</h2>
+                    <p>O que já conquistaste em apenas 8 meses</p>
+                </div>
+                <div class="traction-grid">
+                    <div class="traction-card">
+                        <div class="traction-number">10.000+</div>
+                        <div class="traction-label">Usuários Cadastrados</div>
+                    </div>
+                    <div class="traction-card">
+                        <div class="traction-number">500+</div>
+                        <div class="traction-label">Pontos de Reciclagem Mapeados</div>
+                    </div>
+                    <div class="traction-card">
+                        <div class="traction-number">25+</div>
+                        <div class="traction-label">Parcerias Fechadas</div>
+                    </div>
+                    <div class="traction-card">
+                        <div class="traction-number">4.8★</div>
+                        <div class="traction-label">Avaliação na App Store</div>
+                    </div>
+                    <div class="traction-card">
+                        <div class="traction-number">12.500</div>
+                        <div class="traction-label">Itens Reciclados</div>
+                    </div>
+                    <div class="traction-card">
+                        <div class="traction-number">R$ 150K</div>
+                        <div class="traction-label">Faturamento (2024)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Roadmap -->
+        <div class="slide slide-8" data-slide="8">
+            <div class="slide-content">
+                <div class="roadmap-header">
+                    <h2>Roadmap</h2>
+                    <p>Nosso plano ambicioso para os próximos 18 meses</p>
+                </div>
+                <div class="roadmap">
+                    <div class="roadmap-item">
+                        <div class="roadmap-dot"></div>
+                        <div class="roadmap-content">
+                            <div class="roadmap-period">Q4 2024</div>
+                            <h4>Lançamento e Validação</h4>
+                            <p>Lançamento oficial do app, aquisição dos primeiros 10K usuários, primeiras parcerias B2B com empresas de São Paulo e Rio de Janeiro.</p>
+                        </div>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="roadmap-dot"></div>
+                        <div class="roadmap-content">
+                            <div class="roadmap-period">Q1 2025</div>
+                            <h4>Expansão e Monetização</h4>
+                            <p>Versão Premium lançada, marketplace operante, expansão para 5 capitais brasileiras, primeira campanha de marketing massiva.</p>
+                        </div>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="roadmap-dot"></div>
+                        <div class="roadmap-content">
+                            <div class="roadmap-period">Q3 2025</div>
+                            <h4>Escalada Nacional</h4>
+                            <p>Meta de 100K usuários ativos, lançamento da funcionalidade de compra coletiva de recicláveis, parcerias nacionais.</p>
+                        </div>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="roadmap-dot"></div>
+                        <div class="roadmap-content">
+                            <div class="roadmap-period">Q1 2026</div>
+                            <h4>Expansão Internacional</h4>
+                            <p>Lançamento em Portugal e Espanha, meta de 500K usuários totais, primeira rodada de investimento Series A, lucro positivo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Team -->
+        <div class="slide slide-9" data-slide="9">
+            <div class="slide-content">
+                <div class="team-header">
+                    <h2>Nosso Time</h2>
+                    <p>Experiência e paixão por sustentabilidade e tecnologia</p>
+                </div>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-image">👨‍💼</div>
+                        <div class="team-info">
+                            <h4>João Silva</h4>
+                            <p>CEO & Fundador</p>
+                            <div class="team-role">Ex-CEO Startup Verde | 10+ anos em Sustentabilidade</div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-image">👩‍💻</div>
+                        <div class="team-info">
+                            <h4>Maria Santos</h4>
+                            <p>CTO - Chief Technology Officer</p>
+                            <div class="team-role">Ex-Engenheira de Software no Google | 8 anos de experiência</div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-image">👨‍🎨</div>
+                        <div class="team-info">
+                            <h4>Carlos Oliveira</h4>
+                            <p>Head de Design</p>
+                            <div class="team-role">Ex-Designer Sênior no Nubank | Especialista em UX/UI</div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-image">👩‍🔬</div>
+                        <div class="team-info">
+                            <h4>Ana Costa</h4>
+                            <p>Especialista em Sustentabilidade</p>
+                            <div class="team-role">MSc em Engenharia Ambiental pela USP | Consultora para ONU</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Investment -->
+        <div class="slide slide-10" data-slide="10">
+            <div class="slide-content">
+                <div class="investment-header">
+                    <h2>Oportunidade de Investimento</h2>
+                    <p>Faça parte desta revolução e ajuda a mudar o mundo</p>
+                </div>
+                <div class="investment-section">
+                    <h3 style="text-align: center; color: var(--primary); margin-bottom: 30px;">Estamos Buscando</h3>
+                    <div class="investment-grid">
+                        <div class="investment-card">
+                            <div class="investment-amount">R$ 500.000</div>
+                            <div class="investment-type">Seed Round</div>
+                            <ul class="investment-features">
+                                <li>Valoração Pré-Money: R$ 2,5M</li>
+                                <li>Equity Offered: 20%</li>
+                                <li>Payback Estimado: 3 anos</li>
+                                <li>ROI Projetado: 5-7x</li>
+                            </ul>
+                            <a href="#" class="investment-btn">Investir Agora</a>
+                        </div>
+                        <div class="investment-card featured">
+                            <div class="investment-amount">R$ 1.000.000</div>
+                            <div class="investment-type">Series A</div>
+                            <ul class="investment-features">
+                                <li>Valoração Pré-Money: R$ 5,0M</li>
+                                <li>Equity Offered: 15%</li>
+                                <li>Payback Estimado: 2,5 anos</li>
+                                <li>ROI Projetado: 8-10x</li>
+                                <li>Assento no Conselho</li>
+                            </ul>
+                            <a href="#" class="investment-btn">Investir Agora</a>
+                        </div>
+                    </div>
+                    <div class="allocation-section">
+                        <h4>Alocação dos Fundos</h4>
+                        <div class="allocation-item">
+                            <strong>40%</strong>
+                            <span>Desenvolvimento de Produto</span>
+                        </div>
+                        <div class="allocation-item">
+                            <strong>30%</strong>
+                            <span>Marketing e Aquisição de Usuários</span>
+                        </div>
+                        <div class="allocation-item">
+                            <strong>20%</strong>
+                            <span>Operações e Infraestrutura</span>
+                        </div>
+                        <div class="allocation-item">
+                            <strong>10%</strong>
+                            <span>Reserva de Caixa</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Contact -->
+        <div class="slide slide-11" data-slide="11">
+            <div class="slide-content">
+                <div class="contact-content">
+                    <h2 class="contact-title">Junte-se a Nós!</h2>
+                    <p class="contact-subtitle">Vamos mudar o mundo juntos, um app de cada vez</p>
+                    <div class="contact-quote">
+                        <p>
+                            "A sustentabilidade não é mais uma opção, é uma necessidade. O EcoApp veio para facilitar esta jornada e torná-la acessível a todos."
+                        </p>
+                        <p class="contact-quote-author">- João Silva, CEO EcoApp</p>
+                    </div>
+                    <div class="contact-buttons">
+                        <a href="tel:+5511999999999" class="contact-btn">📞 (11) 99999-9999</a>
+                        <a href="mailto:investidores@ecoapp.com" class="contact-btn">✉️ investidores@ecoapp.com</a>
+                        <a href="https://ecoapp.com/invest" class="contact-btn">🌐 ecoapp.com/invest</a>
+                    </div>
+                    <p style="font-size: 0.9rem; opacity: 0.8;">
+                        <a href="../" style="color: white;">← Voltar ao Portfólio</a>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 
+    <!-- Navigation -->
+    <div class="slide-nav">
+        <button class="nav-arrow" id="prevBtn" disabled>←</button>
+        <button class="nav-arrow" id="nextBtn">→</button>
+    </div>
+    <div class="slide-counter" id="counter">1 / 11</div>
+
     <script>
-        let currentSlide = 1;
-        const totalSlides = 11;
         const slides = document.querySelectorAll('.slide');
-        const counter = document.getElementById('counter');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
+        const counter = document.getElementById('counter');
+        
+        let currentSlide = 0;
+        const totalSlides = slides.length;
 
-        function showSlide(n) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[n - 1].classList.add('active');
-            counter.textContent = `${n} / ${totalSlides}`;
-            prevBtn.disabled = n === 1;
-            nextBtn.disabled = n === totalSlides;
-            currentSlide = n;
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            
+            counter.textContent = `${index + 1} / ${totalSlides}`;
+            prevBtn.disabled = index === 0;
+            nextBtn.disabled = index === totalSlides - 1;
+            currentSlide = index;
         }
 
-        function nextSlide() {
-            if (currentSlide < totalSlides) {
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < totalSlides - 1) {
                 showSlide(currentSlide + 1);
-            }
-        }
-
-        function previousSlide() {
-            if (currentSlide > 1) {
-                showSlide(currentSlide - 1);
-            }
-        }
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowRight') {
-                nextSlide();
-            } else if (e.key === 'ArrowLeft') {
-                previousSlide();
-            } else if (e.key === 'Escape') {
-                showSlide(1);
             }
         });
 
-        showSlide(1);
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' && currentSlide < totalSlides - 1) {
+                showSlide(currentSlide + 1);
+            } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            } else if (e.key === 'Home') {
+                showSlide(0);
+            } else if (e.key === 'End') {
+                showSlide(totalSlides - 1);
+            }
+        });
     </script>
 </body>
 </html>

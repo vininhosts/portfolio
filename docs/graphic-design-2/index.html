@@ -3,51 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campanha Redes Sociais - Summer Vibes</title>
-    <meta name="description" content="Campanha de mídia social: posts, stories, banners e design digital">
+    <title>Campanha Summer Vibes | Design Gráfico Completo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #e74c3c;
+            --secondary: #f39c12;
+            --accent: #3498db;
+            --dark: #2c3e50;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --text: #333;
+            --text-light: #7f8c8d;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #ff6b6b;
-            --secondary: #4ecdc4;
-            --accent: #ffe66d;
-            --dark: #292f36;
-            --light: #f7fff7;
-            --gray: #777;
-            --white: #ffffff;
-        }
-
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            color: var(--dark);
-            line-height: 1.7;
+            background: linear-gradient(135deg, #fef5f3 0%, #fef9f7 100%);
+            color: var(--text);
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 30px;
+            padding: 0 20px;
         }
 
+        /* Header */
         header {
-            background: var(--white);
+            background: linear-gradient(135deg, var(--primary) 0%, #c0392b 100%);
+            color: var(--white);
             padding: 20px 0;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(231, 76, 60, 0.3);
         }
 
-        header .container {
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -56,156 +58,200 @@
         .logo {
             font-size: 24px;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--gray);
-            text-decoration: none;
-            font-size: 14px;
+        .logo .wave {
+            display: inline-block;
+            font-size: 28px;
         }
 
-        .back-link:hover {
-            color: var(--primary);
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
         }
 
-        main {
-            padding: 40px 0;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+        nav a {
             color: var(--white);
-            padding: 60px 0;
-            margin-bottom: 60px;
-            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            opacity: 0.9;
+        }
+
+        nav a:hover {
+            opacity: 1;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #c0392b 50%, #e67e22 100%);
+            color: var(--white);
+            padding: 80px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M50 0 L60 10 L50 20 L40 10 Z M10 50 L20 40 L30 50 L20 60 Z M70 30 L60 40 L70 50 L80 40 Z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
-            font-size: 42px;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
             font-weight: 700;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         .hero p {
-            font-size: 18px;
-            opacity: 0.95;
+            font-size: 1.2rem;
             max-width: 700px;
-            margin: 0 auto;
+            margin: 0 auto 40px;
+            opacity: 0.95;
         }
 
-        .section {
-            margin-bottom: 80px;
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
-        .section-header {
+        .tag {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Section Title */
+        .section-title {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
         }
 
-        .section-header h2 {
-            font-size: 36px;
-            font-weight: 700;
+        .section-title h2 {
+            font-size: 2.5rem;
             color: var(--dark);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
         }
 
-        .section-header p {
-            color: var(--gray);
-            font-size: 16px;
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         /* Campaign Overview */
         .campaign-overview {
             background: var(--white);
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 80px 0;
         }
 
-        .campaign-header {
+        .overview-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 60px;
             align-items: center;
         }
 
-        .campaign-info h3 {
-            font-size: 28px;
+        .overview-text h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
             margin-bottom: 20px;
-            color: var(--dark);
         }
 
-        .campaign-details {
-            list-style: none;
-        }
-
-        .campaign-details li {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 15px;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--light);
-        }
-
-        .detail-label {
-            font-weight: 600;
-            color: var(--gray);
-            min-width: 120px;
-        }
-
-        .detail-value {
-            color: var(--dark);
+        .overview-text p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.8;
         }
 
         .campaign-image {
-            width: 100%;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .campaign-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Design Elements */
-        .design-elements {
-            background: var(--white);
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            height: 400px;
             border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .elements-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: var(--dark);
+        .campaign-image::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            right: -20%;
+            bottom: -50%;
+            background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .campaign-image svg {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Campaign Elements */
+        .campaign-elements {
+            background: var(--light);
+            padding: 80px 0;
         }
 
         .elements-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
         .element-card {
-            background: var(--light);
+            background: var(--white);
             border-radius: 15px;
-            padding: 25px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
             text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .element-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .element-icon {
@@ -216,445 +262,879 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 36px;
+            font-size: 2.5rem;
         }
 
-        .element-icon.post { background: linear-gradient(135deg, #ff9a9e, #fecfef); }
-        .element-icon.story { background: linear-gradient(135deg, #a18cd1, #fbc2eb); }
-        .element-icon.banner { background: linear-gradient(135deg, #fad0c4, #ffd1ff); }
-        .element-icon.video { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
-        .element-icon.cover { background: linear-gradient(135deg, #a8edea, #fed6e3); }
-        .element-icon.reel { background: linear-gradient(135deg, #d299c2, #fef9d7); }
+        .element-icon.colors { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .element-icon.fonts { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .element-icon.graphics { background: linear-gradient(135deg, #48bb78 0%, #43aa8b 100%); }
+        .element-icon.photos { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
 
         .element-card h4 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 10px;
             color: var(--dark);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
         }
 
         .element-card p {
-            font-size: 14px;
-            color: var(--gray);
+            color: var(--text-light);
+            font-size: 0.95rem;
             line-height: 1.6;
         }
 
         /* Color Palette */
         .color-palette {
             background: var(--white);
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 80px 0;
         }
 
-        .palette-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
-
-        .palette-description {
-            color: var(--gray);
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-
-        .colors-grid {
+        .palette-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
         }
 
-        .color-item {
-            aspect-ratio: 1;
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: center;
-            padding: 15px;
+        .palette-item {
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             color: var(--white);
+            position: relative;
+        }
+
+        .palette-item:nth-child(1) { background: #e74c3c; }
+        .palette-item:nth-child(2) { background: #f39c12; }
+        .palette-item:nth-child(3) { background: #f1c40f; }
+        .palette-item:nth-child(4) { background: #2ecc71; }
+        .palette-item:nth-child(5) { background: #3498db; }
+        .palette-item:nth-child(6) { background: #9b59b6; }
+        .palette-item:nth-child(7) { background: #1abc9c; }
+        .palette-item:nth-child(8) { background: #e67e22; }
+
+        .palette-item.primary { background: var(--primary); }
+        .palette-item.secondary { background: var(--secondary); }
+        .palette-item.accent { background: var(--accent); }
+
+        .palette-item .color-name {
             font-weight: 600;
-            font-size: 12px;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
         }
 
-        .color-item.primary { background: #ff6b6b; }
-        .color-item.secondary { background: #4ecdc4; }
-        .color-item.accent { background: #ffe66d; color: #292f36; }
-        .color-item.dark { background: #292f36; }
-        .color-item.light { background: #f7fff7; color: #292f36; }
-        .color-item.coral { background: #ff9a9e; }
-        .color-item.purple { background: #a18cd1; }
-        .color-item.mint { background: #48dbfb; }
-
-        .color-hex {
-            margin-top: 8px;
-            font-size: 10px;
-            opacity: 0.8;
+        .palette-item .color-codes {
+            font-size: 0.75rem;
+            opacity: 0.85;
         }
 
-        /* Posts Grid */
-        .posts-section {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        /* Social Media Posts */
+        .social-posts {
+            background: var(--light);
+            padding: 80px 0;
         }
 
-        .posts-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: var(--dark);
+        .posts-header {
+            text-align: center;
+            margin-bottom: 50px;
         }
 
         .posts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
         }
 
         .post-card {
-            background: var(--light);
+            background: var(--white);
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
         }
 
         .post-image {
-            height: 200px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            height: 250px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
-            font-weight: 600;
+            position: relative;
         }
+
+        .post-image.insta1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .post-image.insta2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .post-image.insta3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
 
         .post-content {
             padding: 20px;
         }
 
-        .post-category {
-            display: inline-block;
-            padding: 4px 10px;
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .post-avatar {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 50%;
+        }
+
+        .post-username {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+
+        .post-location {
+            color: var(--text-light);
+            font-size: 0.8rem;
+        }
+
+        .post-icon {
+            margin-left: auto;
+            color: var(--text-light);
+        }
+
+        .post-caption {
+            color: var(--text);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .post-stats {
+            display: flex;
+            gap: 20px;
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        .post-stat {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Design Process */
+        .design-process {
+            background: var(--white);
+            padding: 80px 0;
+        }
+
+        .process-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
             background: var(--primary);
+        }
+
+        .process-item {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .process-dot {
+            position: absolute;
+            left: 20px;
+            top: 15px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 3px var(--primary);
+        }
+
+        .process-number {
+            position: absolute;
+            left: 20px;
+            top: 15px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
             color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .process-content {
+            background: var(--light);
+            padding: 25px;
             border-radius: 12px;
-            font-size: 10px;
-            font-weight: 500;
+            margin-left: 60px;
+            flex: 1;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .process-title {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .process-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Results */
+        .results {
+            background: linear-gradient(135deg, var(--primary) 0%, #c0392b 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .results-header {
+            margin-bottom: 50px;
+        }
+
+        .results-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .results-header p {
+            opacity: 0.95;
+            font-size: 1.1rem;
+        }
+
+        .results-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .results-stat {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 35px 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .results-stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
             margin-bottom: 10px;
         }
 
-        .post-title {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--dark);
+        .results-stat-label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            font-weight: 500;
         }
 
-        .post-date {
-            font-size: 12px;
-            color: var(--gray);
-        }
-
-        /* Metrics */
-        .metrics {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .metrics-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: var(--dark);
-            text-align: center;
-        }
-
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            text-align: center;
-        }
-
-        .metric-item {
-            padding: 25px;
+        /* Testimonial */
+        .testimonial {
             background: var(--light);
-            border-radius: 15px;
+            padding: 80px 0;
         }
 
-        .metric-value {
-            font-size: 36px;
-            font-weight: 700;
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--dark);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            position: absolute;
+            left: -30px;
+            top: -10px;
+            font-size: 4rem;
             color: var(--primary);
+            opacity: 0.3;
+        }
+
+        .testimonial-quote::after {
+            content: '"';
+            position: absolute;
+            right: -30px;
+            bottom: -10px;
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.3;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+        }
+
+        .author-info {
+            text-align: left;
+        }
+
+        .author-name {
+            font-weight: 700;
+            color: var(--dark);
             margin-bottom: 5px;
         }
 
-        .metric-label {
-            font-size: 14px;
-            color: var(--gray);
+        .author-role {
+            color: var(--text-light);
+            font-size: 0.9rem;
         }
 
         /* Footer */
         footer {
             background: var(--dark);
             color: var(--white);
-            padding: 40px 0 20px;
-            margin-top: 60px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-
-        .footer-section h4 {
-            font-size: 16px;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #a0a0a0;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .footer-bottom {
+            padding: 60px 0 40px;
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 14px;
-            color: #a0a0a0;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo .wave {
+            display: inline-block;
+            font-size: 2.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            opacity: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 32px; }
-            .section-header h2 { font-size: 28px; }
-            .campaign-header { grid-template-columns: 1fr; }
-            .colors-grid { grid-template-columns: repeat(2, 1fr); }
-            .footer-content { flex-direction: column; text-align: center; }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .campaign-image {
+                height: 300px;
+            }
+
+            .palette-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-timeline::before {
+                left: 20px;
+            }
+
+            .process-dot,
+            .process-number {
+                left: 10px;
+            }
+
+            .process-content {
+                margin-left: 50px;
+            }
+
+            .results-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-tags {
+                gap: 10px;
+            }
+
+            .tag {
+                padding: 8px 18px;
+                font-size: 0.85rem;
+            }
+
+            .palette-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-links {
+                gap: 15px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <a href="./" class="logo">Summer Vibes</a>
-            <a href="../" class="back-link">← Voltar ao Portfólio</a>
+            <div class="header-content">
+                <div class="logo"><span class="wave">🌊</span> Summer Vibes</div>
+                <nav>
+                    <ul>
+                        <li><a href="#visao">Visão Geral</a></li>
+                        <li><a href="#elementos">Elementos</a></li>
+                        <li><a href="#cores">Cores</a></li>
+                        <li><a href="#posts">Posts</a></li>
+                        <li><a href="#resultados">Resultados</a></li>
+                        <li><a href="../" style="color: #3498db;">Voltar</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <main>
-        <div class="container">
-            <!-- Hero -->
-            <section class="hero">
-                <h1>Campanha Summer Vibes</h1>
-                <p>Campanha de mídia social para lançamento da coleção verão 2024, com foco em engajamento, conversão e fortalecimento de marca nas redes sociais.</p>
-            </section>
-
-            <!-- Campaign Overview -->
-            <section class="section">
-                <div class="section-header">
-                    <h2>Visão Geral da Campanha</h2>
-                    <p>Estratégia e execução de design para redes sociais</p>
-                </div>
-
-                <div class="campaign-overview">
-                    <div class="campaign-header">
-                        <div class="campaign-info">
-                            <h3>Summer Vibes Collection</h3>
-                            <ul class="campaign-details">
-                                <li><span class="detail-label">Cliente:</span> <span class="detail-value">Marca de Moda Praia</span></li>
-                                <li><span class="detail-label">Duração:</span> <span class="detail-value">6 semanas</span></li>
-                                <li><span class="detail-label">Plataformas:</span> <span class="detail-value">Instagram, Facebook, TikTok</span></li>
-                                <li><span class="detail-label">Objetivo:</span> <span class="detail-value">Lançamento Coleção Verão</span></li>
-                                <li><span class="detail-label">Ferramentas:</span> <span class="detail-value">Photoshop, Illustrator, Canva</span></li>
-                            </ul>
-                        </div>
-                        <div class="campaign-image">
-                            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600" alt="Summer Vibes Campaign">
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Design Elements -->
-            <section class="section">
-                <div class="section-header">
-                    <h2>Elementos de Design</h2>
-                    <p>Tipos de conteúdo criado para a campanha</p>
-                </div>
-
-                <div class="design-elements">
-                    <div class="elements-title">Elementos Visuais</div>
-                    <div class="elements-grid">
-                        <div class="element-card">
-                            <div class="element-icon post">📸</div>
-                            <h4>Posts para Feed</h4>
-                            <p>15 designs de posts estáticos para Instagram e Facebook com diferentes layouts e chamadas para ação.</p>
-                        </div>
-                        <div class="element-card">
-                            <div class="element-icon story">🎬</div>
-                            <h4>Stories</h4>
-                            <p>20 templates de stories interativos com stickers, GIFs e links para conversão.</p>
-                        </div>
-                        <div class="element-card">
-                            <div class="element-icon banner">📛</div>
-                            <h4>Banners</h4>
-                            <p>5 banners para capa de perfil, destaques e anúncios pagos.</p>
-                        </div>
-                        <div class="element-card">
-                            <div class="element-icon video">🎥</div>
-                            <h4>Vídeos</h4>
-                            <p>3 vídeos promocionais de 15-30 segundos para Reels e TikTok.</p>
-                        </div>
-                        <div class="element-card">
-                            <div class="element-icon cover">📋</div>
-                            <h4>Capas</h4>
-                            <p>Design de capas para álbuns de fotos e destaques de stories.</p>
-                        </div>
-                        <div class="element-card">
-                            <div class="element-icon reel">🎞️</div>
-                            <h4>Reels</h4>
-                            <p>5 templates de Reels com transições e effects pré-configurados.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Color Palette -->
-            <section class="section">
-                <div class="section-header">
-                    <h2>Paleta de Cores</h2>
-                    <p>Cores que transmitem a essência do verão</p>
-                </div>
-
-                <div class="color-palette">
-                    <div class="palette-title">Paleta Summer Vibes</div>
-                    <div class="palette-description">
-                        Cores vibrantes e alegres que evocam a energia do verão, combinadas com tons frescos para transmitir frescor e estilo.
-                    </div>
-                    <div class="colors-grid">
-                        <div class="color-item primary">#FF6B6B <div class="color-hex">Vermelho Coral</div></div>
-                        <div class="color-item secondary">#4ECDC4 <div class="color-hex">Turquesa</div></div>
-                        <div class="color-item accent">#FFE66D <div class="color-hex">Amarelo Sol</div></div>
-                        <div class="color-item dark">#292F36 <div class="color-hex">Base Escura</div></div>
-                        <div class="color-item light">#F7FFF7 <div class="color-hex">Base Clara</div></div>
-                        <div class="color-item coral">#FF9A9E <div class="color-hex">Coral Claro</div></div>
-                        <div class="color-item purple">#A18CD1 <div class="color-hex">Lilás</div></div>
-                        <div class="color-item mint">#48DBFB <div class="color-hex">Azul Mentolado</div></div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Posts Grid -->
-            <section class="section">
-                <div class="section-header">
-                    <h2>Exemplos de Posts</h2>
-                    <p>Alguns dos designs criados para a campanha</p>
-                </div>
-
-                <div class="posts-section">
-                    <div class="posts-title">Preview de Posts</div>
-                    <div class="posts-grid">
-                        <div class="post-card">
-                            <div class="post-image" style="background: linear-gradient(45deg, #ff6b6b, #ff9a9e);">Post 1</div>
-                            <div class="post-content">
-                                <span class="post-category">Promocional</span>
-                                <div class="post-title">Lançamento Coleção Verão 2024</div>
-                                <div class="post-date">15 de Janeiro</div>
-                            </div>
-                        </div>
-                        <div class="post-card">
-                            <div class="post-image" style="background: linear-gradient(45deg, #4ecdc4, #48dbfb);">Post 2</div>
-                            <div class="post-content">
-                                <span class="post-category">Inspiração</span>
-                                <div class="post-title"> Looks para o Verão</div>
-                                <div class="post-date">18 de Janeiro</div>
-                            </div>
-                        </div>
-                        <div class="post-card">
-                            <div class="post-image" style="background: linear-gradient(45deg, #ffe66d, #a18cd1);">Post 3</div>
-                            <div class="post-content">
-                                <span class="post-category">Oferta</span>
-                                <div class="post-title">Descontos Especiais</div>
-                                <div class="post-date">20 de Janeiro</div>
-                            </div>
-                        </div>
-                        <div class="post-card">
-                            <div class="post-image" style="background: linear-gradient(45deg, #ff9a9e, #fecfef);">Post 4</div>
-                            <div class="post-content">
-                                <span class="post-category">Novidade</span>
-                                <div class="post-title">Novas Peças Chegando</div>
-                                <div class="post-date">22 de Janeiro</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Metrics -->
-            <section class="section">
-                <div class="section-header">
-                    <h2>Resultados da Campanha</h2>
-                    <p>Métricas de desempenho nas redes sociais</p>
-                </div>
-
-                <div class="metrics">
-                    <div class="metrics-title">Desempenho Geral</div>
-                    <div class="metrics-grid">
-                        <div class="metric-item">
-                            <div class="metric-value">+45%</div>
-                            <div class="metric-label">Engajamento</div>
-                        </div>
-                        <div class="metric-item">
-                            <div class="metric-value">+32%</div>
-                            <div class="metric-label">Seguidores</div>
-                        </div>
-                        <div class="metric-item">
-                            <div class="metric-value">+58%</div>
-                            <div class="metric-label">Alcance</div>
-                        </div>
-                        <div class="metric-item">
-                            <div class="metric-value">12.5K</div>
-                            <div class="metric-label">Visualizações</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Campanha Summer Vibes</h1>
+            <p>Coleção Verão 2024 - Uma explosão de cores, energia e estilo</p>
+            <div class="hero-tags">
+                <span class="tag">Design Gráfico</span>
+                <span class="tag">Social Media</span>
+                <span class="tag">Branding</span>
+            </div>
         </div>
-    </main>
+    </section>
+
+    <!-- Campaign Overview -->
+    <section class="campaign-overview">
+        <div class="container">
+            <div class="section-title" id="visao">
+                <h2>Visão Geral da Campanha</h2>
+                <p>Conheça o conceito por trás da coleção mais vibrante do ano</p>
+            </div>
+            <div class="overview-grid">
+                <div class="overview-text">
+                    <h3>O Conceito</h3>
+                    <p>
+                        A campanha <strong>Summer Vibes</strong> foi criada para lançar a coleção verão 2024 da marca, 
+                        trazendo uma identidade visual que transmite energia, calor, diversão e liberdade. 
+                        Inspirada nas cores do pôr do sol, nas ondas do mar e na vibração das férias.
+                    </p>
+                    <p>
+                        O objetivo era criar uma conexão emocional com o público, transportando-os para o clima de verão 
+                        mesmo antes da estação começar. Cada elemento visual foi pensado para evocar memórias de praia, 
+                        sol e momentos inesquecíveis.
+                    </p>
+                    <div style="margin-top: 30px;">
+                        <h4 style="color: var(--primary); margin-bottom: 15px;">Público Alvo</h4>
+                        <ul style="list-style: none; padding: 0; text-align: left; display: inline-block;">
+                            <li style="padding: 8px 0; border-bottom: 1px solid #eee; color: var(--text-light);">• Jovens entre 18-35 anos</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid #eee; color: var(--text-light);">• Amantes de moda e estilo</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid #eee; color: var(--text-light);">• Pessoas conectadas nas redes sociais</li>
+                            <li style="padding: 8px 0; color: var(--text-light);">• consumidores de moda rápida</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="campaign-image">
+                    <svg viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Sun -->
+                        <circle cx="250" cy="50" r="30" fill="#f1c40f"/>
+                        <circle cx="250" cy="50" r="25" fill="#f39c12"/>
+                        <!-- Palm trees -->
+                        <path d="M50 150 L60 100 L70 150" stroke="#27ae60" stroke-width="3" fill="none"/>
+                        <path d="M45 140 Q50 110 55 140 Q60 110 65 140" stroke="#27ae60" stroke-width="2" fill="none"/>
+                        <ellipse cx="55" cy="150" rx="8" ry="5" fill="#8b4513"/>
+                        <path d="M100 150 L110 100 L120 150" stroke="#27ae60" stroke-width="3" fill="none"/>
+                        <path d="M95 140 Q100 110 105 140 Q110 110 115 140" stroke="#27ae60" stroke-width="2" fill="none"/>
+                        <ellipse cx="105" cy="150" rx="8" ry="5" fill="#8b4513"/>
+                        <!-- Beach -->
+                        <path d="M0 180 L300 180 L300 200 L0 200 Z" fill="#f4d03f"/>
+                        <path d="M0 170 L300 170 L300 180 L0 180 Z" fill="#f39c12"/>
+                        <!-- Ocean -->
+                        <path d="M0 140 Q150 160 300 140 L300 200 L0 200 Z" fill="#3498db"/>
+                        <path d="M0 150 Q150 155 300 150" stroke="#2980b9" stroke-width="2" fill="none"/>
+                        <!-- Text -->
+                        <text x="150" y="80" text-anchor="middle" fill="#e74c3c" font-family="Poppins" font-size="18" font-weight="700">SUMMER</text>
+                        <text x="150" y="100" text-anchor="middle" fill="#e74c3c" font-family="Poppins" font-size="18" font-weight="700">VIBES</text>
+                        <text x="150" y="120" text-anchor="middle" fill="#3498db" font-family="Poppins" font-size="10" font-weight="600">COLLECTION 2024</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campaign Elements -->
+    <section class="campaign-elements">
+        <div class="container">
+            <div class="section-title" id="elementos">
+                <h2>Elementos da Campanha</h2>
+                <p>Os componentes que deram vida à identidade visual</p>
+            </div>
+            <div class="elements-grid">
+                <div class="element-card">
+                    <div class="element-icon colors">🎨</div>
+                    <h4>Paleta de Cores</h4>
+                    <p>8 cores vibrantes que representam o verão: laranja, rosa, amarelo, verde, azul, roxo, vermelho e coral.</p>
+                </div>
+                <div class="element-card">
+                    <div class="element-icon fonts">Tt</div>
+                    <h4>Tipografia</h4>
+                    <p>Combinação de Poppins Bold para títulos e Poppins Regular para textos, transmitindo modernidade e legibilidade.</p>
+                </div>
+                <div class="element-card">
+                    <div class="element-icon graphics">✏️</div>
+                    <h4>Elementos Gráficos</h4>
+                    <p>Formas orgânicas, ondas, raíos de sol e texturas que remetem ao calor, movimento e energia do verão.</p>
+                </div>
+                <div class="element-card">
+                    <div class="element-icon photos">📷</div>
+                    <h4>Fotografia</h4>
+                    <p>Imagens com alta saturação, contrastes vibrantes e filtros quentes para transmitir a sensação de verão.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Color Palette -->
+    <section class="color-palette" id="cores">
+        <div class="container">
+            <div class="section-title">
+                <h2>Paleta de Cores</h2>
+                <p>Cores que definiram a identidade visual da campanha</p>
+            </div>
+            <div class="palette-grid">
+                <div class="palette-item">
+                    <div class="color-name">Vermelho Principal</div>
+                    <div class="color-codes">#e74c3c | RGB: 231, 76, 60</div>
+                </div>
+                <div class="palette-item">
+                    <div class="color-name">Laranja</div>
+                    <div class="color-codes">#f39c12 | RGB: 243, 156, 18</div>
+                </div>
+                <div class="palette-item">
+                    <div class="color-name">Amarelo</div>
+                    <div class="color-codes">#f1c40f | RGB: 241, 196, 15</div>
+                </div>
+                <div class="palette-item">
+                    <div class="color-name">Verde</div>
+                    <div class="color-codes">#2ecc71 | RGB: 46, 204, 113</div>
+                </div>
+                <div class="palette-item">
+                    <div class="color-name">Azul</div>
+                    <div class="color-codes">#3498db | RGB: 52, 152, 219</div>
+                </div>
+                <div class="palette-item">
+                    <div class="color-name">Roxo</div>
+                    <div class="color-codes">#9b59b6 | RGB: 155, 89, 182</div>
+                </div>
+                <div class="palette-item">
+                    <div class="color-name">Coral</div>
+                    <div class="color-codes">#e67e22 | RGB: 230, 126, 34</div>
+                </div>
+                <div class="palette-item">
+                    <div class="color-name">Rosa</div>
+                    <div class="color-codes">#f093fb | RGB: 240, 147, 251</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Posts -->
+    <section class="social-posts">
+        <div class="container">
+            <div class="section-title" id="posts">
+                <h2>Posts para Redes Sociais</h2>
+                <p>Conheça os posts criados para a campanha</p>
+            </div>
+            <div class="posts-header">
+                <h3>3 Exemplos de Posts no Instagram</h3>
+            </div>
+            <div class="posts-grid">
+                <!-- Post 1 -->
+                <div class="post-card">
+                    <div class="post-image insta1">
+                        <svg viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="75" cy="75" r="60" fill="none" stroke="white" stroke-width="3" opacity="0.8"/>
+                            <path d="M45 75 L105 75 M75 45 L75 105" stroke="white" stroke-width="3" opacity="0.8"/>
+                            <circle cx="75" cy="35" r="8" fill="white" opacity="0.9"/>
+                            <text x="75" y="55" text-anchor="middle" fill="white" font-family="Poppins" font-size="12" font-weight="600">Lançamento</text>
+                            <text x="75" y="70" text-anchor="middle" fill="white" font-family="Poppins" font-size="10">Today!</text>
+                        </svg>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <div class="post-avatar"></div>
+                            <span class="post-username">summervibes</span>
+                            <span class="post-location">São Paulo, Brasil</span>
+                            <span class="post-icon">⋯</span>
+                        </div>
+                        <p class="post-caption">
+                            🌴 A coleção que você esperava Chegou! Summer Vibes 2024 está oficial no ar! 
+                            Corra para garantir as suas peças favoritas antes que esgotem! 🌊☀️
+                        </p>
+                        <div class="post-stats">
+                            <div class="post-stat">❤️ 12.548</div>
+                            <div class="post-stat">💬 482</div>
+                            <div class="post-stat">📤 245</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 2 -->
+                <div class="post-card">
+                    <div class="post-image insta2">
+                        <svg viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="20" y="40" width="110" height="70" rx="10" fill="white" opacity="0.9"/>
+                            <path d="M30 50 L120 50 M30 60 L120 60 M30 70 L120 70 M30 80 L120 80" stroke="#e74c3c" stroke-width="2"/>
+                            <circle cx="75" cy="75" r="20" fill="none" stroke="#e74c3c" stroke-width="2"/>
+                            <text x="75" y="80" text-anchor="middle" fill="#e74c3c" font-family="Poppins" font-size="10" font-weight="600">50% OFF</text>
+                        </svg>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <div class="post-avatar"></div>
+                            <span class="post-username">summervibes</span>
+                            <span class="post-location">Promoção Relâmpago</span>
+                            <span class="post-icon">⋯</span>
+                        </div>
+                        <p class="post-caption">
+                            ⏰ Só hoje! TODOS os itens da Coleção Summer Vibes com 50% de desconto! 
+                            Não perca essa oportunidade única! A promoção é por tempo limitado! 🔥
+                        </p>
+                        <div class="post-stats">
+                            <div class="post-stat">❤️ 8.921</div>
+                            <div class="post-stat">💬 345</div>
+                            <div class="post-stat">📤 187</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 3 -->
+                <div class="post-card">
+                    <div class="post-image insta3">
+                        <svg viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 100 Q75 60 130 100 Q75 140 20 100" fill="none" stroke="white" stroke-width="4" opacity="0.8"/>
+                            <path d="M40 90 Q75 70 110 90" fill="none" stroke="white" stroke-width="3" opacity="0.8"/>
+                            <circle cx="75" cy="85" r="15" fill="white" opacity="0.9"/>
+                            <text x="75" y="82" text-anchor="middle" fill="#2c3e50" font-family="Poppins" font-size="8" font-weight="700">VIBE</text>
+                            <text x="75" y="95" text-anchor="middle" fill="#2c3e50" font-family="Poppins" font-size="6">WITH US</text>
+                        </svg>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <div class="post-avatar"></div>
+                            <span class="post-username">summervibes</span>
+                            <span class="post-location">Community</span>
+                            <span class="post-icon">⋯</span>
+                        </div>
+                        <p class="post-caption">
+                            💖 Queremos ver você usando a Coleção Summer Vibes! 
+                            Marque @summervibes na sua foto e use a hashtag #MySummerVibes para ter chance de ganhar 
+                            um vale-compras de R$ 500,00! 🎁
+                        </p>
+                        <div class="post-stats">
+                            <div class="post-stat">❤️ 15.342</div>
+                            <div class="post-stat">💬 892</div>
+                            <div class="post-stat">📤 456</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Process -->
+    <section class="design-process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Processo Criativo</h2>
+                <p>Como a campanha foi desenvolvida do zero ao lançamento</p>
+            </div>
+            <div class="process-timeline">
+                <div class="process-item">
+                    <div class="process-number">1</div>
+                    <div class="process-content">
+                        <div class="process-title">Briefing</div>
+                        <p>Reunião inicial para entender os objetivos da campanha, público-alvo, orçamento e prazos. Definição dos deliverables.</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-number">2</div>
+                    <div class="process-content">
+                        <div class="process-title">Pesquisa</div>
+                        <p>Análise de tendências de moda, concorrentes, referenciais visuais e inspirações para a coleção verão.</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-number">3</div>
+                    <div class="process-content">
+                        <div class="process-title">Conceito</div>
+                        <p>Desenvolvimento da identidade visual, paleta de cores, tipografia e elementos gráficos que representam o Summer Vibes.</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-number">4</div>
+                    <div class="process-content">
+                        <div class="process-title">Produção</div>
+                        <p>Criação de todos os materiais: posts, stories, banners, mockups, vídeos e apresentações.</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-number">5</div>
+                    <div class="process-content">
+                        <div class="process-title">Revisão</div>
+                        <p>Aprovação com o cliente, ajustes finos e preparação para publicação nas redes sociais.</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-number">6</div>
+                    <div class="process-content">
+                        <div class="process-title">Lançamento</div>
+                        <p>Publicação da campanha, monitoramento dos resultados e ajustes em tempo real.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="results" id="resultados">
+        <div class="container">
+            <div class="results-header">
+                <h2>Resultados Obtidos</h2>
+                <p>O impacto da campanha nas redes sociais e nas vendas</p>
+            </div>
+            <div class="results-stats">
+                <div class="results-stat">
+                    <div class="results-stat-number">45%</div>
+                    <div class="results-stat-label">Aumento nas Vendas</div>
+                </div>
+                <div class="results-stat">
+                    <div class="results-stat-number">15K+</div>
+                    <div class="results-stat-label">Novos Seguidores</div>
+                </div>
+                <div class="results-stat">
+                    <div class="results-stat-number">500+</div>
+                    <div class="results-stat-label">Compartilhamentos</div>
+                </div>
+                <div class="results-stat">
+                    <div class="results-stat-number">12%</div>
+                    <div class="results-stat-label">Aumento no Engajamento</div>
+                </div>
+                <div class="results-stat">
+                    <div class="results-stat-number">800</div>
+                    <div class="results-stat-label">Posts com Hashtag</div>
+                </div>
+                <div class="results-stat">
+                    <div class="results-stat-number">R$ 120K</div>
+                    <div class="results-stat-label">Faturamento Gerado</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="testimonial">
+        <div class="container">
+            <div class="section-title">
+                <h2>Depoimento do Cliente</h2>
+                <p>O que nossos clientes acharam da campanha</p>
+            </div>
+            <div class="testimonial-content">
+                <p class="testimonial-quote">
+                    Ficamos impressionados com o resultado da campanha Summer Vibes. Os designs eram 
+                    incríveis e super alinhados com a nossa marca. O engajamento nas redes sociais foi 
+                    surpreendente e as vendas cresceram mais do que esperávamos. Com certeza 
+                    faremos parceria novamente!
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar"></div>
+                    <div class="author-info">
+                        <div class="author-name">Ana Carolina Santos</div>
+                        <div class="author-role">Diretora de Marketing - Moda Express</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Projeto: Campanha Summer Vibes</h4>
-                    <p>Mídia Social - Verão 2024</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Serviços</h4>
-                    <p>Design Digital, Mídia Social, Branding</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Contato</h4>
-                    <p>design@agencia.com</p>
-                </div>
+            <div class="footer-logo"><span class="wave">🌊</span> Summer Vibes</div>
+            <div class="footer-links">
+                <a href="#visao">Visão Geral</a>
+                <a href="#elementos">Elementos</a>
+                <a href="#cores">Cores</a>
+                <a href="#posts">Posts</a>
+                <a href="#resultados">Resultados</a>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 - Todos os direitos reservados</p>
-            </div>
+            <p style="margin-top: 30px; opacity: 0.7;">
+                Campanha Summer Vibes Collection 2024 | Todos os direitos reservados
+            </p>
+            <a href="../" class="btn" style="margin-top: 20px;">← Voltar ao Portfólio</a>
         </div>
     </footer>
 </body>
