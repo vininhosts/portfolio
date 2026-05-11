@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Gráfico - Vinicius Siqueira</title>
+  <meta name="description" content="Logos e projetos de design gráfico para o portfólio de Vinicius Siqueira.">
+  <style>
+    :root {
+      --paper: #fbfaf6;
+      --ink: #1b1a17;
+      --muted: #69665d;
+      --line: #ded8cc;
+      --tile: #ffffff;
+      --coral: #e8563f;
+      --teal: #159b91;
+      --yellow: #f3c74b;
+      --blue: #3157d5;
+      --green: #65a844;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        linear-gradient(90deg, rgba(27, 26, 23, 0.045) 1px, transparent 1px),
+        linear-gradient(rgba(27, 26, 23, 0.045) 1px, transparent 1px),
+        var(--paper);
+      background-size: 48px 48px;
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    svg { display: block; width: 100%; height: 100%; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 72px;
+      padding: 14px clamp(18px, 4vw, 48px);
+      border-bottom: 1px solid var(--line);
+      background: rgba(251, 250, 246, 0.9);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 900; }
+    .brand-mark { display: grid; place-items: center; width: 42px; height: 42px; border: 2px solid var(--ink); background: var(--yellow); }
+    .brand span:last-child { display: grid; font-size: 0.92rem; color: var(--muted); font-weight: 700; }
+    .nav { display: flex; align-items: center; gap: clamp(12px, 3vw, 28px); color: var(--muted); font-size: 0.9rem; font-weight: 700; }
+    .nav a { padding: 8px 0; border-bottom: 2px solid transparent; }
+    .nav a:hover, .nav a:focus-visible { border-color: var(--coral); color: var(--ink); }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(280px, 390px) minmax(0, 1fr);
+      gap: clamp(24px, 4vw, 52px);
+      width: min(1440px, 100%);
+      margin: 0 auto;
+      padding: clamp(24px, 5vw, 56px) clamp(18px, 4vw, 48px) 36px;
+    }
+
+    .profile { position: sticky; top: 104px; align-self: start; min-height: calc(100vh - 136px); }
+    .profile-lockup { width: min(100%, 320px); margin-bottom: 28px; border: 1px solid var(--ink); background: var(--tile); box-shadow: 8px 8px 0 var(--ink); aspect-ratio: 4 / 3; }
+    .eyebrow, .tag { color: var(--muted); font-size: 0.76rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0; }
+    h1 { max-width: 12ch; margin: 14px 0 18px; font-size: clamp(2.45rem, 4.9vw, 5.55rem); line-height: 0.95; letter-spacing: 0; }
+    .intro { max-width: 32rem; margin: 0 0 24px; color: var(--muted); font-size: 1rem; }
+    .service-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .service-list span { min-height: 34px; padding: 7px 10px; border: 1px solid var(--line); background: var(--tile); color: var(--ink); font-size: 0.8rem; font-weight: 800; }
+    .contact-button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 14px; border: 2px solid var(--ink); background: var(--ink); color: var(--paper); font-size: 0.88rem; font-weight: 900; overflow-wrap: anywhere; }
+    .contact-button:hover, .contact-button:focus-visible { background: var(--coral); color: var(--ink); }
+
+    .portfolio { min-width: 0; }
+    .portfolio-heading { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 18px; }
+    h2 { margin: 4px 0 0; font-size: clamp(1.8rem, 3vw, 3.4rem); line-height: 1; letter-spacing: 0; }
+    .filter-bar { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+    .filter { min-height: 36px; padding: 7px 11px; border: 1px solid var(--ink); border-radius: 0; background: var(--tile); color: var(--ink); font: inherit; font-size: 0.82rem; font-weight: 850; cursor: pointer; }
+    .filter.active, .filter:hover, .filter:focus-visible { background: var(--yellow); }
+
+    .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .project-card { display: grid; min-width: 0; overflow: hidden; border: 1px solid var(--ink); background: var(--tile); box-shadow: 5px 5px 0 rgba(27, 26, 23, 0.16); transition: transform 180ms ease, box-shadow 180ms ease; }
+    .project-card:hover { transform: translate(-2px, -2px); box-shadow: 9px 9px 0 rgba(27, 26, 23, 0.2); }
+    .project-card[hidden] { display: none; }
+    .visual { width: 100%; aspect-ratio: 4 / 3; background: #eee9df; }
+    .project-copy { display: grid; gap: 8px; padding: 16px; }
+    .project-copy h3 { margin: 0; font-size: 1.18rem; line-height: 1.1; }
+    .project-copy p { min-height: 4.5em; margin: 0; color: var(--muted); font-size: 0.92rem; }
+    .tag { width: fit-content; padding: 3px 7px; background: rgba(21, 155, 145, 0.13); color: #0e6f69; }
+    .featured { grid-column: span 2; grid-template-columns: minmax(0, 1.15fr) minmax(240px, 0.85fr); }
+    .featured .visual { height: 100%; aspect-ratio: auto; }
+    .featured .project-copy { align-content: end; }
+
+    .footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 24px clamp(18px, 4vw, 48px) 34px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; }
+    .footer a { color: var(--ink); }
+
+    @media (max-width: 1040px) {
+      .layout { grid-template-columns: 1fr; }
+      .profile { position: static; display: grid; grid-template-columns: minmax(220px, 320px) minmax(0, 1fr); gap: 26px; min-height: auto; }
+      .profile-lockup { margin: 0; }
+      .profile .eyebrow, .profile h1, .intro, .service-list, .contact-button { grid-column: 2; }
+      .profile h1 { max-width: 16ch; margin-top: 0; }
+    }
+
+    @media (max-width: 780px) {
+      .topbar, .portfolio-heading, .footer { align-items: flex-start; flex-direction: column; }
+      .nav { width: 100%; justify-content: space-between; }
+      .profile { grid-template-columns: 1fr; }
+      .profile .eyebrow, .profile h1, .intro, .service-list, .contact-button { grid-column: auto; }
+      .profile-lockup { width: min(100%, 280px); }
+      h1 { font-size: clamp(2.45rem, 12vw, 4rem); }
+      .filter-bar { justify-content: flex-start; }
+      .project-grid, .featured { grid-template-columns: 1fr; }
+      .featured { grid-column: span 1; }
+      .featured .visual { aspect-ratio: 4 / 3; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar" aria-label="Navegação principal">
+    <a class="brand" href="../" aria-label="Voltar ao portfólio principal"><span class="brand-mark">VS</span><span>Vinicius<br>Design</span></a>
+    <nav class="nav" aria-label="Seções"><a href="#logos">Logos</a><a href="#projetos">Projetos</a><a href="../">Portfolio</a></nav>
+  </header>
+
+  <main class="layout">
+    <aside class="profile" aria-labelledby="profile-title">
+      <div class="profile-lockup">
+        <svg viewBox="0 0 720 540" role="img" aria-label="Logo Vinicius Design"><rect width="720" height="540" fill="#fbfaf6"/><rect x="38" y="38" width="644" height="464" fill="#1b1a17"/><path d="M96 124h154l57 198 58-198h154L397 416H218L96 124Z" fill="#f3c74b"/><path d="M436 124h88c80 0 132 58 132 146s-52 146-132 146h-88V124Zm81 81v130h6c29 0 48-25 48-65s-19-65-48-65h-6Z" fill="#fbfaf6"/><circle cx="171" cy="404" r="27" fill="#e8563f"/><circle cx="553" cy="129" r="27" fill="#159b91"/><path d="M93 463h534" stroke="#fbfaf6" stroke-width="12"/></svg>
+      </div>
+      <p class="eyebrow">Design gráfico, branding e direção visual</p>
+      <h1 id="profile-title">Logos e projetos visuais com acabamento de marca.</h1>
+      <p class="intro">Coleção original para posicionar o portfólio como estúdio de identidade visual, campanhas e peças digitais.</p>
+      <div class="service-list" aria-label="Serviços"><span>Identidade visual</span><span>Logotipos</span><span>Editorial</span><span>Social media</span><span>Embalagem</span></div>
+      <a class="contact-button" href="mailto:contato@vinidesign.com.br">contato@vinidesign.com.br</a>
+    </aside>
+
+    <section id="projetos" class="portfolio" aria-labelledby="portfolio-title">
+      <div class="portfolio-heading">
+        <div><p class="eyebrow">Seleção de trabalhos</p><h2 id="portfolio-title">Projetos de design gráfico</h2></div>
+        <div class="filter-bar" aria-label="Filtrar projetos"><button class="filter active" type="button" data-filter="all">Todos</button><button class="filter" type="button" data-filter="logo">Logos</button><button class="filter" type="button" data-filter="brand">Identidade</button><button class="filter" type="button" data-filter="print">Editorial</button><button class="filter" type="button" data-filter="digital">Digital</button></div>
+      </div>
+
+      <div id="logos" class="project-grid" aria-live="polite">
+        <article class="project-card" data-kind="logo brand"><div class="visual"><svg viewBox="0 0 800 600" role="img" aria-label="Logo Aurora Studio"><rect width="800" height="600" fill="#fff7ec"/><circle cx="400" cy="248" r="118" fill="#e8563f"/><path d="M282 248a118 118 0 0 1 236 0" fill="#f3c74b"/><path d="M400 88 434 194h111l-90 65 35 106-90-66-90 66 35-106-90-65h111L400 88Z" fill="#3157d5"/><path d="M192 382h416" stroke="#1b1a17" stroke-width="16"/><text x="400" y="438" text-anchor="middle" fill="#1b1a17" font-family="Arial" font-size="54" font-weight="900">AURORA</text><text x="400" y="478" text-anchor="middle" fill="#69665d" font-family="Arial" font-size="24" font-weight="700">STUDIO</text></svg></div><div class="project-copy"><span class="tag">Logo</span><h3>Aurora Studio</h3><p>Marca para estúdio criativo com símbolo solar, contraste suave e sistema fácil de aplicar em papelaria.</p></div></article>
+        <article class="project-card" data-kind="logo"><div class="visual"><svg viewBox="0 0 800 600" role="img" aria-label="Logo Café Lume"><rect width="800" height="600" fill="#fbfaf6"/><rect x="126" y="94" width="548" height="412" fill="#2a211c"/><path d="M273 254h212v64c0 62-47 102-106 102s-106-40-106-102v-64Z" fill="#f3c74b"/><path d="M492 280h32c29 0 51 21 51 48s-22 48-51 48h-36" fill="none" stroke="#f3c74b" stroke-width="24"/><ellipse cx="376" cy="324" rx="40" ry="22" fill="#e8563f" transform="rotate(-25 376 324)"/><path d="M604 161 617 196l37 2-29 23 10 36-31-20-31 20 10-36-29-23 37-2 13-35Z" fill="#159b91"/><text x="400" y="474" text-anchor="middle" fill="#fbfaf6" font-family="Arial" font-size="52" font-weight="900">CAFÉ LUME</text></svg></div><div class="project-copy"><span class="tag">Logo</span><h3>Café Lume</h3><p>Identidade para cafeteria artesanal com monograma, grão luminoso e paleta quente para fachada e copos.</p></div></article>
+        <article class="project-card" data-kind="logo brand"><div class="visual"><svg viewBox="0 0 800 600" role="img" aria-label="Logo Nova Ciclo"><rect width="800" height="600" fill="#f4fbf8"/><rect x="70" y="70" width="660" height="460" fill="#123f3b"/><path d="M302 320c0-74 56-134 126-134h96" stroke="#65d46e" stroke-width="54" stroke-linecap="round" fill="none"/><path d="M498 280c0 74-56 134-126 134h-96" stroke="#fbfaf6" stroke-width="54" stroke-linecap="round" fill="none"/><circle cx="284" cy="418" r="42" fill="#e8563f"/><circle cx="516" cy="182" r="42" fill="#f3c74b"/><text x="400" y="482" text-anchor="middle" fill="#fbfaf6" font-family="Arial" font-size="56" font-weight="900">NOVA CICLO</text></svg></div><div class="project-copy"><span class="tag">Logo</span><h3>Nova Ciclo</h3><p>Sinal para mobilidade urbana com curvas contínuas, ritmo de movimento e leitura em tamanho pequeno.</p></div></article>
+        <article class="project-card" data-kind="logo digital"><div class="visual"><svg viewBox="0 0 800 600" role="img" aria-label="Logo Pixel Sabor"><rect width="800" height="600" fill="#fffdf4"/><rect x="122" y="78" width="556" height="444" fill="#1b1a17"/><g transform="translate(244 122)"><rect width="72" height="72" fill="#e8563f"/><rect x="80" width="72" height="72" fill="#f3c74b"/><rect x="160" width="72" height="72" fill="#159b91"/><rect x="240" width="72" height="72" fill="#3157d5"/><rect y="80" width="72" height="72" fill="#f3c74b"/><rect x="80" y="80" width="72" height="72" fill="#fbfaf6"/><rect x="160" y="80" width="72" height="72" fill="#fbfaf6"/><rect x="240" y="80" width="72" height="72" fill="#e8563f"/><rect y="160" width="72" height="72" fill="#159b91"/><rect x="80" y="160" width="72" height="72" fill="#fbfaf6"/><rect x="160" y="160" width="72" height="72" fill="#fbfaf6"/><rect x="240" y="160" width="72" height="72" fill="#f3c74b"/></g><path d="M345 179v138M455 179v138M345 317c0 40 110 40 110 0" stroke="#1b1a17" stroke-width="18" fill="none"/><text x="400" y="437" text-anchor="middle" fill="#fbfaf6" font-family="Arial" font-size="58" font-weight="900">PIXEL</text><text x="400" y="478" text-anchor="middle" fill="#f3c74b" font-family="Arial" font-size="30" font-weight="900">SABOR</text></svg></div><div class="project-copy"><span class="tag">Logo</span><h3>Pixel Sabor</h3><p>Logo para foodtech com linguagem modular, ícone responsivo e versões pensadas para app e embalagem.</p></div></article>
+        <article class="project-card featured" data-kind="print brand"><div class="visual"><svg viewBox="0 0 960 720" role="img" aria-label="Cartaz Festival Prisma"><rect width="960" height="720" fill="#1b1a17"/><rect x="48" y="44" width="864" height="632" fill="#fbfaf6"/><rect x="90" y="82" width="212" height="556" fill="#e8563f"/><rect x="322" y="82" width="212" height="556" fill="#f3c74b"/><rect x="554" y="82" width="212" height="556" fill="#159b91"/><rect x="720" y="82" width="100" height="556" fill="#3157d5"/><circle cx="268" cy="198" r="92" fill="#1b1a17"/><circle cx="486" cy="362" r="128" fill="#fbfaf6"/><circle cx="702" cy="526" r="78" fill="#1b1a17"/><text x="88" y="184" fill="#fbfaf6" font-family="Arial" font-size="112" font-weight="900">FES</text><text x="88" y="292" fill="#fbfaf6" font-family="Arial" font-size="112" font-weight="900">TI</text><text x="88" y="400" fill="#fbfaf6" font-family="Arial" font-size="112" font-weight="900">VAL</text><text x="322" y="622" fill="#1b1a17" font-family="Arial" font-size="94" font-weight="900">PRISMA</text></svg></div><div class="project-copy"><span class="tag">Editorial</span><h3>Festival Prisma</h3><p>Cartaz musical com tipografia condensada, composição em camadas e alto impacto para impressão A3.</p></div></article>
+        <article class="project-card" data-kind="brand print"><div class="visual"><svg viewBox="0 0 800 600" role="img" aria-label="Sistema Botânica Urbana"><rect width="800" height="600" fill="#eef7ef"/><rect x="52" y="52" width="300" height="496" fill="#16413a"/><rect x="386" y="52" width="362" height="230" fill="#fbfaf6"/><rect x="386" y="318" width="170" height="230" fill="#e8563f"/><rect x="578" y="318" width="170" height="230" fill="#f3c74b"/><path d="M204 128c64 58 64 134 0 224-64-90-64-166 0-224Z" fill="#65a844"/><path d="M204 128v294" stroke="#fbfaf6" stroke-width="10"/><text x="202" y="468" text-anchor="middle" fill="#fbfaf6" font-family="Arial" font-size="38" font-weight="900">BOTÂNICA</text><text x="202" y="506" text-anchor="middle" fill="#f3c74b" font-family="Arial" font-size="23" font-weight="900">URBANA</text><circle cx="676" cy="132" r="38" fill="#e8563f"/><circle cx="646" cy="188" r="24" fill="#65a844"/></svg></div><div class="project-copy"><span class="tag">Identidade</span><h3>Botânica Urbana</h3><p>Mini sistema visual para floricultura contemporânea com padrões, etiquetas e cartões de acompanhamento.</p></div></article>
+        <article class="project-card" data-kind="digital brand"><div class="visual"><svg viewBox="0 0 800 600" role="img" aria-label="Campanha Frame Social"><rect width="800" height="600" fill="#fbfaf6"/><rect x="52" y="52" width="212" height="496" fill="#3157d5"/><rect x="294" y="52" width="212" height="496" fill="#1b1a17"/><rect x="536" y="52" width="212" height="496" fill="#159b91"/><rect x="84" y="86" width="148" height="148" fill="#f3c74b"/><rect x="84" y="270" width="148" height="92" fill="#fbfaf6"/><text x="103" y="335" fill="#3157d5" font-family="Arial" font-size="42" font-weight="900">DROP</text><circle cx="400" cy="176" r="88" fill="#e8563f"/><path d="M340 330h120v28H340zM340 388h100v28H340zM340 446h144v28H340z" fill="#fbfaf6"/><text x="584" y="162" fill="#fbfaf6" font-family="Arial" font-size="48" font-weight="900">NEW</text><text x="584" y="220" fill="#fbfaf6" font-family="Arial" font-size="48" font-weight="900">WAVE</text></svg></div><div class="project-copy"><span class="tag">Digital</span><h3>Frame Social</h3><p>Pacote de posts com grid flexível, contraste forte e componentes prontos para campanhas de lançamento.</p></div></article>
+        <article class="project-card" data-kind="brand print"><div class="visual"><svg viewBox="0 0 800 600" role="img" aria-label="Embalagem Linha Viva"><rect width="800" height="600" fill="#f7f4ec"/><rect x="96" y="118" width="180" height="382" fill="#fbfaf6" stroke="#1b1a17" stroke-width="8"/><rect x="310" y="82" width="180" height="418" fill="#fbfaf6" stroke="#1b1a17" stroke-width="8"/><rect x="524" y="146" width="180" height="354" fill="#fbfaf6" stroke="#1b1a17" stroke-width="8"/><rect x="96" y="118" width="180" height="92" fill="#159b91"/><rect x="310" y="82" width="180" height="116" fill="#e8563f"/><rect x="524" y="146" width="180" height="82" fill="#f3c74b"/><circle cx="186" cy="284" r="52" fill="#f3c74b"/><circle cx="400" cy="292" r="64" fill="#159b91"/><circle cx="614" cy="306" r="48" fill="#3157d5"/><text x="186" y="399" text-anchor="middle" fill="#1b1a17" font-family="Arial" font-size="30" font-weight="900">LINHA</text><text x="400" y="405" text-anchor="middle" fill="#1b1a17" font-family="Arial" font-size="34" font-weight="900">LINHA</text><text x="614" y="403" text-anchor="middle" fill="#1b1a17" font-family="Arial" font-size="30" font-weight="900">LINHA</text></svg></div><div class="project-copy"><span class="tag">Embalagem</span><h3>Linha Viva</h3><p>Conceito de embalagem para cosmético natural com faixas cromáticas, selo de linha e hierarquia clara.</p></div></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><span>Projeto pronto para GitHub Pages.</span><a href="../">Voltar ao portfólio</a></footer>
+
+  <script>
+    const filters = document.querySelectorAll('.filter');
+    const cards = document.querySelectorAll('.project-card');
+    filters.forEach((button) => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        filters.forEach((item) => item.classList.toggle('active', item === button));
+        cards.forEach((card) => {
+          const kinds = card.dataset.kind.split(' ');
+          card.hidden = filter !== 'all' && !kinds.includes(filter);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
